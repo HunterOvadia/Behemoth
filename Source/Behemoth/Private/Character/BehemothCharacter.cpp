@@ -1,4 +1,6 @@
 #include "Character/BehemothCharacter.h"
+
+#include "Blueprint/UserWidget.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -29,7 +31,8 @@ ABehemothCharacter::ABehemothCharacter()
 
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); 
-	FollowCamera->bUsePawnControlRotation = false; 
+	FollowCamera->bUsePawnControlRotation = false;
+
 }
 
 void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -45,6 +48,20 @@ void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAxis("TurnRate", this, &ABehemothCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ABehemothCharacter::LookUpAtRate);
+}
+
+void ABehemothCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	if(IsValid(PlayerHUDClass))
+	{
+		PlayerHUD = CreateWidget<UUserWidget>(GetGameInstance(), PlayerHUDClass);
+		if(IsValid(PlayerHUD))
+		{
+			PlayerHUD->AddToViewport();
+		}
+	}
 }
 
 

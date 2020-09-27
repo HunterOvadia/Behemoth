@@ -12,7 +12,8 @@ class ABehemothCharacter : public ACharacter
 public:
 	ABehemothCharacter();
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
+	virtual void BeginPlay() override;
+	
 	class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
@@ -23,6 +24,11 @@ protected:
 	void LookUpAtRate(const float Rate);
 	
 protected:
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
+	TSubclassOf<class UUserWidget> PlayerHUDClass;
+	UPROPERTY(BlueprintReadOnly, Category = "UI")
+	class UUserWidget *PlayerHUD;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera", meta=(AllowPrivateAccess="true"))
 	class USpringArmComponent* CameraBoom;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera", meta=(AllowPrivateAccess="true"))
