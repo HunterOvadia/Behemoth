@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Hunter\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Hunter\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\ReSharperHost\v202\SolutionCaches\_Behemoth.1020692537.00" t="ExcludeRecursive" />
-    <e p="M:\_GameDev\Behemoth\Behemoth" t="IncludeFlat">
+    <e p="C:\Users\Hunter\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\ReSharperHost\v202\SolutionCaches\_Behemoth.1657200583.00" t="ExcludeRecursive" />
+    <e p="M:\_GameDev\Behemoth" t="IncludeFlat">
+      <e p=".gitignore" t="Include" />
       <e p="Behemoth.sln" t="IncludeFlat" />
       <e p="Behemoth.uproject" t="Include" />
       <e p="Config" t="Include">
@@ -21,15 +22,28 @@
         <e p="UE4.vcxproj" t="IncludeRecursive" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="README.md" t="Include" />
       <e p="Source" t="Include">
         <e p="Behemoth" t="Include">
           <e p="Behemoth.Build.cs" t="Include" />
           <e p="Behemoth.cpp" t="Include" />
           <e p="Behemoth.h" t="Include" />
-          <e p="BehemothCharacter.cpp" t="Include" />
-          <e p="BehemothCharacter.h" t="Include" />
-          <e p="BehemothGameMode.cpp" t="Include" />
-          <e p="BehemothGameMode.h" t="Include" />
+          <e p="Private" t="Include">
+            <e p="Character" t="Include">
+              <e p="BehemothCharacter.cpp" t="Include" />
+            </e>
+            <e p="core" t="Include">
+              <e p="BehemothGameMode.cpp" t="Include" />
+            </e>
+          </e>
+          <e p="Public" t="Include">
+            <e p="Character" t="Include">
+              <e p="BehemothCharacter.h" t="Include" />
+            </e>
+            <e p="core" t="Include">
+              <e p="BehemothGameMode.h" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Behemoth.Target.cs" t="Include" />
         <e p="BehemothEditor.Target.cs" t="Include" />
