@@ -7,6 +7,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Components/BHAttributesComponent.h"
 
 ABehemothCharacter::ABehemothCharacter()
 {
@@ -33,6 +34,7 @@ ABehemothCharacter::ABehemothCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); 
 	FollowCamera->bUsePawnControlRotation = false;
 
+	AttributesComponent = CreateDefaultSubobject<UBHAttributesComponent>(TEXT("AttributesComponent"));
 }
 
 void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -62,6 +64,18 @@ void ABehemothCharacter::BeginPlay()
 			PlayerHUD->AddToViewport();
 		}
 	}
+}
+
+float ABehemothCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	const float DamageTaken = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+	
+	if(IsValid(AttributesComponent))
+	{
+		AttributesComponent->ModifyAttribute(Health, -DamageTaken);
+	}
+
+	return DamageTaken;
 }
 
 

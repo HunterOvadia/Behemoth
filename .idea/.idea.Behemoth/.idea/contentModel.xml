@@ -32,6 +32,9 @@
             <e p="Character" t="Include">
               <e p="BehemothCharacter.cpp" t="Include" />
             </e>
+            <e p="Components" t="Include">
+              <e p="BHAttributesComponent.cpp" t="Include" />
+            </e>
             <e p="core" t="Include">
               <e p="BehemothGameMode.cpp" t="Include" />
             </e>
@@ -39,6 +42,9 @@
           <e p="Public" t="Include">
             <e p="Character" t="Include">
               <e p="BehemothCharacter.h" t="Include" />
+            </e>
+            <e p="Components" t="Include">
+              <e p="BHAttributesComponent.h" t="Include" />
             </e>
             <e p="core" t="Include">
               <e p="BehemothGameMode.h" t="Include" />
