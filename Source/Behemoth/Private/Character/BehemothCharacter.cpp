@@ -69,7 +69,6 @@ void ABehemothCharacter::BeginPlay()
 float ABehemothCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	const float DamageTaken = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-	
 	if(IsValid(AttributesComponent))
 	{
 		AttributesComponent->ModifyAttribute(Health, -DamageTaken);
