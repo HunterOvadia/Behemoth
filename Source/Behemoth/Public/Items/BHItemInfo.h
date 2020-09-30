@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/DataTable.h"
+
 #include "BHItemInfo.generated.h"
 
 UENUM()
@@ -15,50 +17,35 @@ enum EBHItemRarity
 };
 
 UENUM()
-enum EBHArmorType
+enum EBHItemType
 {
+	// Armor
 	Head,
 	Shoulders,
 	Chest,
 	Hands,
 	Legs,
 	Feet,
-};
 
-UENUM()
-enum EBHWeaponType
-{
+	// Weapons
     Sword,
-	Axe,
-	Staff,
-	Bow
+    Axe,
+    Staff,
+    Bow
 };
 
 
 USTRUCT(BlueprintType)
-struct FBHItemData
+struct FBHItemData : public FTableRowBase
 {
 	GENERATED_BODY()
 
-	int ID;
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FText Name;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EBHItemRarity> Rarity;
-	// Generic Stats
-};
-
-USTRUCT(BlueprintType)
-struct FBHArmorData : public FBHItemData
-{
-	GENERATED_BODY()
-	TEnumAsByte<EBHArmorType> Type;
-};
-
-USTRUCT(BlueprintType)
-struct FBHWeaponData : public FBHItemData
-{
-	GENERATED_BODY()
-	TEnumAsByte<EBHWeaponType> Type;
-
-	float Damage;
-	float Speed;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TEnumAsByte<EBHItemType> Type;
+	// TODO(Hunter): Stats
 };

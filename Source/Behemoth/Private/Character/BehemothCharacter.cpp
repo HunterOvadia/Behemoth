@@ -8,6 +8,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/BHAttributesComponent.h"
+#include "COmponents/BHInventoryComponent.h"
 
 ABehemothCharacter::ABehemothCharacter()
 {
@@ -35,6 +36,7 @@ ABehemothCharacter::ABehemothCharacter()
 	FollowCamera->bUsePawnControlRotation = false;
 
 	AttributesComponent = CreateDefaultSubobject<UBHAttributesComponent>(TEXT("AttributesComponent"));
+	InventoryComponent = CreateDefaultSubobject<UBHInventoryComponent>(TEXT("InventoryComponent"));
 }
 
 void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -43,6 +45,8 @@ void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	PlayerInputComponent->BindAction("Inventory", IE_Released, this, &ABehemothCharacter::ToggleInventory);
+	PlayerInputComponent->BindAction("CharacterInfo", IE_Released, this, &ABehemothCharacter::ToggleCharacterInfo);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ABehemothCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ABehemothCharacter::MoveRight);

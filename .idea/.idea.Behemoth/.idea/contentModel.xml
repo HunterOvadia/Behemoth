@@ -34,9 +34,13 @@
             </e>
             <e p="Components" t="Include">
               <e p="BHAttributesComponent.cpp" t="Include" />
+              <e p="BHInventoryComponent.cpp" t="Include" />
             </e>
             <e p="core" t="Include">
               <e p="BehemothGameMode.cpp" t="Include" />
+            </e>
+            <e p="Items" t="Include">
+              <e p="BHItemInfo.cpp" t="Include" />
             </e>
           </e>
           <e p="Public" t="Include">
@@ -45,9 +49,13 @@
             </e>
             <e p="Components" t="Include">
               <e p="BHAttributesComponent.h" t="Include" />
+              <e p="BHInventoryComponent.h" t="Include" />
             </e>
             <e p="core" t="Include">
               <e p="BehemothGameMode.h" t="Include" />
+            </e>
+            <e p="Items" t="Include">
+              <e p="BHItemInfo.h" t="Include" />
             </e>
           </e>
         </e>
