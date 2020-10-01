@@ -7,7 +7,7 @@
 
 #include "BHItemInfo.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum EBHItemRarity
 {
 	Common,
@@ -16,7 +16,8 @@ enum EBHItemRarity
 	Epic
 };
 
-UENUM()
+
+UENUM(BlueprintType)
 enum EBHItemType
 {
 	// Armor
@@ -39,13 +40,26 @@ USTRUCT(BlueprintType)
 struct FBHItemData : public FTableRowBase
 {
 	GENERATED_BODY()
+	FBHItemData();
 
 public:
+	friend bool operator==(const FBHItemData& Lhs, const FBHItemData& Rhs)
+	{
+		return Lhs.ID == Rhs.ID;
+	}
+	
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int32 ID;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FText Name;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UTexture2D *ItemIcon;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EBHItemRarity> Rarity;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EBHItemType> Type;
 	// TODO(Hunter): Stats
+
+	
 };

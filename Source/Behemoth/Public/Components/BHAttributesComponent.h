@@ -61,4 +61,5 @@ protected:
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attributes")
 	TMap<TEnumAsByte<EBHAttributeType>, FBHAttribute> Attributes;
+	
 };

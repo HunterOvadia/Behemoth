@@ -2,3 +2,8 @@
 
 
 #include "Items/BHItemInfo.h"
+
+FBHItemData::FBHItemData()
+    : ID(-1), ItemIcon(nullptr), Rarity(), Type()
+{
+}
