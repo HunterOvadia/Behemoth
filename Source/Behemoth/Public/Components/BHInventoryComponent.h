@@ -37,23 +37,34 @@ class BEHEMOTH_API UBHInventoryComponent : public UActorComponent
 public:	
 	UBHInventoryComponent();
 
+	/* Inventory */
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void AddToInventory(const FBHItemData& ItemData, const int32 Amount = 1);
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void RemoveFromInventory(const FBHItemData& ItemData, const int32 Amount = 1);
+
+	/* Equipment */
 	UFUNCTION(BlueprintCallable, Category = "Equipment")
 	void EquipItem(const FBHItemData& ItemData);
 	UFUNCTION(BlueprintCallable, Category = "Equipment")
 	void UnEquipItem(const FBHItemData& ItemData);
-	
-protected:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
-	TMap<int32, FBHInventoryItem> Inventory;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equipment")
-	TMap<TEnumAsByte<EBHItemType>, FBHItemData> EquippedItems;
 
 	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnItemEquippedSignature OnItemEquipped;
 	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnItemEquippedSignature OnItemUnEquipped;
+	
+protected:
+	/* Inventory */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
+	TMap<int32, FBHInventoryItem> Inventory;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
+	int32 MaxInventorySlots;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
+	int32 UsedInventorySlots;
+
+	/* Equipment */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Equipment")
+	TMap<TEnumAsByte<EBHItemType>, FBHItemData> EquippedItems;
+
 };

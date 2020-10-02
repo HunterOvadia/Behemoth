@@ -56,6 +56,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UTexture2D *ItemIcon;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UStaticMesh *ItemMesh;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EBHItemRarity> Rarity;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EBHItemType> Type;

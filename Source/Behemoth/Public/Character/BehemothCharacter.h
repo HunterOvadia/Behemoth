@@ -2,7 +2,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Items/BHItemInfo.h"
 #include "BehemothCharacter.generated.h"
+
+struct FBHItemData;
 
 UCLASS(config=Game)
 class ABehemothCharacter : public ACharacter
@@ -29,6 +32,14 @@ protected:
 	void ToggleInventory();
 	UFUNCTION(BlueprintImplementableEvent)
     void ToggleCharacterInfo();
+
+	UFUNCTION()
+    void OnItemEquipped(const FBHItemData& ItemData);
+	UFUNCTION()
+	void OnItemUnEquipped(const FBHItemData& ItemData);
+
+	UFUNCTION(BlueprintCallable)
+	void UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped);
 	
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "UI")
@@ -44,6 +55,11 @@ protected:
 	class UBHAttributesComponent *AttributesComponent;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
 	class UBHInventoryComponent *InventoryComponent;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
+	class UStaticMeshComponent *HelmetMesh;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
+	class UStaticMeshComponent *ChestMesh;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
 	float BaseTurnRate;

@@ -5,7 +5,8 @@
 
 UBHInventoryComponent::UBHInventoryComponent()
 {
-
+    MaxInventorySlots = 32;
+    UsedInventorySlots = 0;
 }
 
 void UBHInventoryComponent::AddToInventory(const FBHItemData& ItemData, const int32 Amount)
@@ -18,8 +19,12 @@ void UBHInventoryComponent::AddToInventory(const FBHItemData& ItemData, const in
     }
     else
     {
-        // NOTE(Hunter): If we do not have the item in our inventory, make a new one with the amount
-        Inventory.Add(ItemData.ID, FBHInventoryItem(ItemData, Amount));
+        if(UsedInventorySlots < MaxInventorySlots)
+        {
+            // NOTE(Hunter): If we do not have the item in our inventory, make a new one with the amount
+            Inventory.Add(ItemData.ID, FBHInventoryItem(ItemData, Amount));
+            ++UsedInventorySlots;
+        }
     }
 }
 
@@ -39,12 +44,14 @@ void UBHInventoryComponent::RemoveFromInventory(const FBHItemData& ItemData, con
             if(ItemCount <= 0)
             {
                 Inventory.Remove(ItemData.ID);
+                --UsedInventorySlots;
             }
         }
         else
         {
             // NOTE(Hunter): If we only have 1 item, just remove it.
             Inventory.Remove(ItemData.ID);
+            --UsedInventorySlots;
         }
     }
 }
@@ -53,6 +60,7 @@ void UBHInventoryComponent::EquipItem(const FBHItemData& ItemData)
 {
     EquippedItems.Add(ItemData.Type, ItemData);
     RemoveFromInventory(ItemData, 1);
+    
     OnItemEquipped.Broadcast(ItemData);
 }
 
@@ -60,8 +68,8 @@ void UBHInventoryComponent::UnEquipItem(const FBHItemData& ItemData)
 {
     EquippedItems.Remove(ItemData.Type);
     AddToInventory(ItemData, 1);
+    
     OnItemUnEquipped.Broadcast(ItemData);
 }
-
 
 

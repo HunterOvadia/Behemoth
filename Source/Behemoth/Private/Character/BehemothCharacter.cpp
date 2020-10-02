@@ -8,7 +8,8 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/BHAttributesComponent.h"
-#include "COmponents/BHInventoryComponent.h"
+#include "Components/BHInventoryComponent.h"
+#include "Components/StaticMeshComponent.h"
 
 ABehemothCharacter::ABehemothCharacter()
 {
@@ -37,6 +38,12 @@ ABehemothCharacter::ABehemothCharacter()
 
 	AttributesComponent = CreateDefaultSubobject<UBHAttributesComponent>(TEXT("AttributesComponent"));
 	InventoryComponent = CreateDefaultSubobject<UBHInventoryComponent>(TEXT("InventoryComponent"));
+
+
+	HelmetMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("HelmetMesh"));
+	HelmetMesh->SetupAttachment(GetMesh(), "HeadSocket");
+	ChestMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ChestMesh"));
+    ChestMesh->SetupAttachment(GetMesh(), "ChestSocket");
 }
 
 void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -68,7 +75,14 @@ void ABehemothCharacter::BeginPlay()
 			PlayerHUD->AddToViewport();
 		}
 	}
+
+	if(IsValid(InventoryComponent))
+	{
+		InventoryComponent->OnItemEquipped.AddDynamic(this, &ABehemothCharacter::OnItemEquipped);
+		InventoryComponent->OnItemUnEquipped.AddDynamic(this, &ABehemothCharacter::OnItemUnEquipped);
+	}
 }
+
 
 float ABehemothCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
@@ -82,6 +96,7 @@ float ABehemothCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
 }
 
 
+
 void ABehemothCharacter::TurnAtRate(const float Rate)
 {
 	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
@@ -90,6 +105,49 @@ void ABehemothCharacter::TurnAtRate(const float Rate)
 void ABehemothCharacter::LookUpAtRate(const float Rate)
 {
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+}
+
+void ABehemothCharacter::OnItemEquipped(const FBHItemData& ItemData)
+{
+	UpdateArmorMesh(ItemData, true);
+}
+
+void ABehemothCharacter::OnItemUnEquipped(const FBHItemData& ItemData)
+{
+	UpdateArmorMesh(ItemData, false);
+}
+
+void ABehemothCharacter::UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped) 
+{
+	UStaticMeshComponent *ComponentToUpdate = nullptr;
+	switch(ItemData.Type)
+	{
+		case Head:
+		{
+			if(IsValid(HelmetMesh))
+			{
+				ComponentToUpdate = HelmetMesh;
+			}
+			break;
+		}
+		case Chest:
+		{
+			if(IsValid(ChestMesh))
+			{
+				ComponentToUpdate = ChestMesh;
+			}
+			break;
+		}
+		default:
+		{
+			break;
+		}
+	}
+
+	if(IsValid(ComponentToUpdate))
+	{
+		ComponentToUpdate->SetStaticMesh(bIsEquipped ? ItemData.ItemMesh : nullptr);
+	}
 }
 
 void ABehemothCharacter::MoveForward(const float Value)

@@ -8,14 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Behemoth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Behemoth/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/BP_BehemothCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/BP_BehemothCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/Data/DT_Items.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Data/DT_Items.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/CharacterSheet/W_ArmorSlot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/CharacterSheet/W_ArmorSlot.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/CharacterRenderTarget/BP_CharacterMeshCapture.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/CharacterRenderTarget/BP_CharacterMeshCapture.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/CharacterSheet/W_CharacterSheetUI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/CharacterSheet/W_CharacterSheetUI.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/CharacterSheet/W_WeaponSlot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/CharacterSheet/W_WeaponSlot.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/MainHUD/W_PlayerHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/MainHUD/W_PlayerHUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Inventory/W_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/Inventory/W_Inventory.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Private/Character/BehemothCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Private/Character/BehemothCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInventoryComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Private/Items/BHItemInfo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Private/Items/BHItemInfo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHAttributesComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHAttributesComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Character/BehemothCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Character/BehemothCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInventoryComponent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemInfo.h" afterDir="false" />
     </list>
@@ -36,6 +36,7 @@
     <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Core/BehemothGameMode.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/UObject/ScriptDelegates.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/UMG/Public/Blueprint/UserWidget.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/HAL/Platform.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Character/BehemothCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Math/Quat.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/GameMenuBuilder/Private/GameMenuBuilderStyle.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -58,15 +59,21 @@
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/Kismet/Private/BlueprintDebugger.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/SlateCore/Public/Styling/SlateColor.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/UnrealEd/Private/PlayLevel.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Classes/Components/StaticMeshComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/CoreUObject/Public/UObject/Object.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/LevelActor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInventoryComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Lumin/MagicLeap/Source/MagicLeap/Public/MeshTrackerTypes.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/DataTableFunctionLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Delegates/Delegate.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/Sequencer/Public/SequencerSectionPainter.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Developer/Profiler/Private/ProfilerDataSource.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/2D/Paper2D/Source/Paper2DEditor/Private/FlipbookEditor/FlipbookEditorCommands.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Shaders/Public/Platform.ush" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Delegates/DelegateSignatureImpl.inl" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Compositing/OpenColorIO/Source/OpenColorIO/Public/OpenColorIOShared.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/BlueprintGraph/Private/BlueprintGraphPanelPinFactory.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Experimental/GeometryCollectionPlugin/Source/GeometryCollectionEditor/Private/GeometryCollection/GeometryCollectionCommands.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -74,8 +81,11 @@
     <setting file="file://$PROJECT_DIR$/Source/Behemoth/Behemoth.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/BlueprintGraph/Public/BlueprintNodeTemplateCache.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Templates/Tuple.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/GenericPlatform/GenericPlatform.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Developer/StandaloneRenderer/Private/Windows/D3D/SlateD3DTextureManager.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/PropertyEditor/Private/SDetailsViewBase.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UE4Editor/Inc/Behemoth/BHItemInfo.gen.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/LandscapeEditor/Private/LandscapeEditorDetails.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/DetailCustomizations/Private/ColorGradingVectorCustomization.h" root0="FORCE_HIGHLIGHTING" />
@@ -89,7 +99,9 @@
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Experimental/ChaosEditor/Source/FractureEditor/Private/FractureEditorMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/FontFace.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Classes/Engine/SkeletalMesh.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/UnrealEd/Classes/Factories/FbxSceneImportOptionsStaticMesh.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/VirtualProduction/DataCharts/DataCharts.uplugin" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Developer/StandaloneRenderer/Private/OpenGL/SlateOpenGLTextureManager.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/PlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -117,13 +129,13 @@
         <option value="$PROJECT_DIR$/Source/Behemoth/Behemoth.Build.cs" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Behemoth.h" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHAttributesComponent.cpp" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Character/BehemothCharacter.cpp" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Character/BehemothCharacter.h" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHAttributesComponent.h" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemInfo.h" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Private/Items/BHItemInfo.cpp" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInventoryComponent.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemInfo.h" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInventoryComponent.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Character/BehemothCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInventoryComponent.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Character/BehemothCharacter.h" />
       </list>
     </option>
   </component>
@@ -368,7 +380,7 @@
       <workItem from="1601238130153" duration="12000" />
       <workItem from="1601238169369" duration="7657000" />
       <workItem from="1601248602973" duration="633000" />
-      <workItem from="1601424896793" duration="14131000" />
+      <workItem from="1601424896793" duration="21890000" />
     </task>
     <servers />
   </component>
@@ -383,70 +395,74 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="51" key="GridCell.Tab.0.bottom" timestamp="1601513664327">
+    <state width="590" height="464" key="DebuggerActiveHint" timestamp="1601597036727">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513664327" />
-    <state width="1877" height="51" key="GridCell.Tab.0.center" timestamp="1601513664327">
+    <state width="590" height="464" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597036727" />
+    <state width="1877" height="121" key="GridCell.Tab.0.bottom" timestamp="1601597130846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513664327" />
-    <state width="1877" height="51" key="GridCell.Tab.0.left" timestamp="1601513664327">
+    <state width="1877" height="121" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130846" />
+    <state width="1877" height="121" key="GridCell.Tab.0.center" timestamp="1601597130846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513664327" />
-    <state width="1877" height="51" key="GridCell.Tab.0.right" timestamp="1601513664327">
+    <state width="1877" height="121" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130846" />
+    <state width="1877" height="121" key="GridCell.Tab.0.left" timestamp="1601597130846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513664327" />
-    <state width="1877" height="51" key="GridCell.Tab.1.bottom" timestamp="1601513663997">
+    <state width="1877" height="121" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130846" />
+    <state width="1877" height="121" key="GridCell.Tab.0.right" timestamp="1601597130846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663997" />
-    <state width="1877" height="51" key="GridCell.Tab.1.center" timestamp="1601513663996">
+    <state width="1877" height="121" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130846" />
+    <state width="1877" height="121" key="GridCell.Tab.1.bottom" timestamp="1601597130598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663996" />
-    <state width="1877" height="51" key="GridCell.Tab.1.left" timestamp="1601513663996">
+    <state width="1877" height="121" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130598" />
+    <state width="1877" height="121" key="GridCell.Tab.1.center" timestamp="1601597130598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663996" />
-    <state width="1877" height="51" key="GridCell.Tab.1.right" timestamp="1601513663996">
+    <state width="1877" height="121" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130598" />
+    <state width="1877" height="121" key="GridCell.Tab.1.left" timestamp="1601597130598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663996" />
-    <state width="1877" height="51" key="GridCell.Tab.2.bottom" timestamp="1601513663997">
+    <state width="1877" height="121" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130598" />
+    <state width="1877" height="121" key="GridCell.Tab.1.right" timestamp="1601597130598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663997" />
-    <state width="1877" height="51" key="GridCell.Tab.2.center" timestamp="1601513663997">
+    <state width="1877" height="121" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130598" />
+    <state width="1877" height="121" key="GridCell.Tab.2.bottom" timestamp="1601597130599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663997" />
-    <state width="1877" height="51" key="GridCell.Tab.2.left" timestamp="1601513663997">
+    <state width="1877" height="121" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130599" />
+    <state width="1877" height="121" key="GridCell.Tab.2.center" timestamp="1601597130598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663997" />
-    <state width="1877" height="51" key="GridCell.Tab.2.right" timestamp="1601513663997">
+    <state width="1877" height="121" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130598" />
+    <state width="1877" height="121" key="GridCell.Tab.2.left" timestamp="1601597130598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663997" />
-    <state width="1877" height="51" key="GridCell.Tab.3.bottom" timestamp="1601513663997">
+    <state width="1877" height="121" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130598" />
+    <state width="1877" height="121" key="GridCell.Tab.2.right" timestamp="1601597130598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663997" />
-    <state width="1877" height="51" key="GridCell.Tab.3.center" timestamp="1601513663997">
+    <state width="1877" height="121" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130598" />
+    <state width="1877" height="121" key="GridCell.Tab.3.bottom" timestamp="1601597130599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663997" />
-    <state width="1877" height="51" key="GridCell.Tab.3.left" timestamp="1601513663997">
+    <state width="1877" height="121" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130599" />
+    <state width="1877" height="121" key="GridCell.Tab.3.center" timestamp="1601597130599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663997" />
-    <state width="1877" height="51" key="GridCell.Tab.3.right" timestamp="1601513663997">
+    <state width="1877" height="121" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130599" />
+    <state width="1877" height="121" key="GridCell.Tab.3.left" timestamp="1601597130599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="51" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601513663997" />
+    <state width="1877" height="121" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130599" />
+    <state width="1877" height="121" key="GridCell.Tab.3.right" timestamp="1601597130599">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="121" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601597130599" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1601238230850">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -455,13 +471,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="262" y="253" width="1296" height="534" key="find.popup/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601461861721" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1601244478211">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1601592139361">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601244478211" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601592139361" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601422401134">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601422401134" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CppProject">
+        <watch expression="InventoryComponent" language="C++" />
+        <watch expression="IsValid(InventoryComponent)" language="C++" />
+        <watch expression="IsValid(InventoryComponent);" language="C++" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
