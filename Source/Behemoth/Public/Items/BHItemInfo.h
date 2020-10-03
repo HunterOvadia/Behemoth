@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/BHAttributesComponent.h"
 #include "Engine/DataTable.h"
 
 #include "BHItemInfo.generated.h"
@@ -27,12 +28,6 @@ enum EBHItemType
 	Hands,
 	Legs,
 	Feet,
-
-	// Weapons
-    Sword,
-    Axe,
-    Staff,
-    Bow
 };
 
 
@@ -54,6 +49,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FText Name;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FText Description;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UTexture2D *ItemIcon;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	UStaticMesh *ItemMesh;
@@ -61,7 +58,8 @@ public:
 	TEnumAsByte<EBHItemRarity> Rarity;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EBHItemType> Type;
-	// TODO(Hunter): Stats
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TMap<TEnumAsByte<EBHAttributeType>, int32> Attributes;
 
 	
 };

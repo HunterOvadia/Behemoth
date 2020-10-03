@@ -10,6 +10,8 @@
 #include "Components/BHAttributesComponent.h"
 #include "Components/BHInventoryComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Core/BehemothGameMode.h"
+#include "Serialization/StructuredArchiveFormatter.h"
 
 ABehemothCharacter::ABehemothCharacter()
 {
@@ -80,6 +82,27 @@ void ABehemothCharacter::BeginPlay()
 	{
 		InventoryComponent->OnItemEquipped.AddDynamic(this, &ABehemothCharacter::OnItemEquipped);
 		InventoryComponent->OnItemUnEquipped.AddDynamic(this, &ABehemothCharacter::OnItemUnEquipped);
+
+		UWorld *World = GetWorld();
+		if(World != nullptr)
+		{
+			ABehemothGameMode *GM = Cast<ABehemothGameMode>(GetWorld()->GetAuthGameMode());
+			if(IsValid(GM))
+			{
+				UDataTable *ItemDatabase = GM->GetItemDatabase();
+				if(IsValid(ItemDatabase))
+				{
+					FBHItemData *Item1 = GM->GetItemDatabase()->FindRow<FBHItemData>(FName("1"), "");
+					FBHItemData *Item2 = GM->GetItemDatabase()->FindRow<FBHItemData>(FName("2"), "");
+
+					if(Item1 != nullptr)
+					{
+						InventoryComponent->AddToInventory(*Item1);
+						InventoryComponent->AddToInventory(*Item2);
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -89,7 +112,7 @@ float ABehemothCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
 	const float DamageTaken = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 	if(IsValid(AttributesComponent))
 	{
-		AttributesComponent->ModifyAttribute(Health, -DamageTaken);
+		AttributesComponent->ModifyAttributeCurrent(Health, -DamageTaken);
 	}
 
 	return DamageTaken;
@@ -110,14 +133,29 @@ void ABehemothCharacter::LookUpAtRate(const float Rate)
 void ABehemothCharacter::OnItemEquipped(const FBHItemData& ItemData)
 {
 	UpdateArmorMesh(ItemData, true);
+	RecalculateAttributesForItem(ItemData, true);
 }
 
 void ABehemothCharacter::OnItemUnEquipped(const FBHItemData& ItemData)
 {
 	UpdateArmorMesh(ItemData, false);
+	RecalculateAttributesForItem(ItemData, false);
 }
 
-void ABehemothCharacter::UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped) 
+void ABehemothCharacter::RecalculateAttributesForItem(const FBHItemData& ItemData, const bool bIsEquipped) const
+{
+	if(IsValid(AttributesComponent))
+	{
+		for(const auto Attribute : ItemData.Attributes)
+        {
+	        const float ModificationAmount = (bIsEquipped ? Attribute.Value : -Attribute.Value);
+        	AttributesComponent->ModifyAttributeMax(Attribute.Key, ModificationAmount);
+        }
+	}
+}
+
+
+void ABehemothCharacter::UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped) const
 {
 	UStaticMeshComponent *ComponentToUpdate = nullptr;
 	switch(ItemData.Type)

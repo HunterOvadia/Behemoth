@@ -49,6 +49,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Equipment")
 	void UnEquipItem(const FBHItemData& ItemData);
 
+
 	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnItemEquippedSignature OnItemEquipped;
 	UPROPERTY(BlueprintAssignable, Category = "Events")

@@ -16,13 +16,23 @@ struct FBHAttribute
 	GENERATED_BODY()
 
 public:
-	void Modify(const float ModificationValue)
+	void UpdateCurrentValue(const float ModificationValue)
 	{
 		CurrentValue += ModificationValue;
 		CurrentValue = FMath::Clamp(CurrentValue, 0.0f, MaxValue);
 	}
+
+	void UpdateMaxValue(const float NewValueModificationAmount)
+	{
+		MaxValue += NewValueModificationAmount;
+	}
+
+	void SetMaxValue(const float SetValue)
+	{
+		MaxValue = SetValue;
+	}
 	
-	void Set(const float SetValue)
+	void SetCurrentValue(const float SetValue)
 	{
 		CurrentValue = SetValue;
 		CurrentValue = FMath::Clamp(CurrentValue, 0.0f, MaxValue);
@@ -30,7 +40,6 @@ public:
 
 	float GetMaxValue() const { return MaxValue; }
 	float GetCurrentValue() const { return CurrentValue; }
-
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Attribute")
 	float MaxValue = 100;
@@ -47,9 +56,15 @@ public:
 	UBHAttributesComponent();
 	
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
-	float ModifyAttribute(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount);
+	float ModifyAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount);
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
-	float SetAttribute(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue);
+	float SetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue);
+
+	UFUNCTION(BlueprintCallable, Category = "Attributes")
+	float ModifyAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount);
+	UFUNCTION(BlueprintCallable, Category = "Attributes")
+    float SetAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue);
+	
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
 	float GetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType) const;
 	UFUNCTION(BlueprintCallable, Category = "Attributes")

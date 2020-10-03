@@ -39,7 +39,10 @@ protected:
 	void OnItemUnEquipped(const FBHItemData& ItemData);
 
 	UFUNCTION(BlueprintCallable)
-	void UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped);
+	void RecalculateAttributesForItem(const FBHItemData& ItemData, const bool bIsEquipped) const;
+	
+	UFUNCTION(BlueprintCallable)
+	void UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped) const;
 	
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "UI")

@@ -72,4 +72,3 @@ void UBHInventoryComponent::UnEquipItem(const FBHItemData& ItemData)
     OnItemUnEquipped.Broadcast(ItemData);
 }
 
-
