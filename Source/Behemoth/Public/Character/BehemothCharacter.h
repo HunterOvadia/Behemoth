@@ -43,7 +43,10 @@ protected:
 	
 	UFUNCTION(BlueprintCallable)
 	void UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped) const;
-	
+
+	UFUNCTION()
+	void RegenerateHealthOverTime() const;
+
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "UI")
 	TSubclassOf<class UUserWidget> PlayerHUDClass;
@@ -68,5 +71,12 @@ protected:
 	float BaseTurnRate;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
 	float BaseLookUpRate;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Health")
+	float HealthRegenAmount;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Health")
+	float HealthRegenRate;
+
+	FTimerHandle HealthRegenTimerHandle;
 };
 

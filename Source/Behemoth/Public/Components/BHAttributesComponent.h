@@ -2,11 +2,14 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Engine/DataTable.h"
+
 #include "BHAttributesComponent.generated.h"
 
 UENUM()
 enum EBHAttributeType
 {
+	Armor,
 	Health,
 };
 
@@ -25,11 +28,19 @@ public:
 	void UpdateMaxValue(const float NewValueModificationAmount)
 	{
 		MaxValue += NewValueModificationAmount;
+		if(bSetToMaxOnMaxChange)
+		{
+			SetCurrentValue(MaxValue);
+		}
 	}
 
 	void SetMaxValue(const float SetValue)
 	{
 		MaxValue = SetValue;
+		if(bSetToMaxOnMaxChange)
+		{
+			SetCurrentValue(MaxValue);
+		}
 	}
 	
 	void SetCurrentValue(const float SetValue)
@@ -43,8 +54,12 @@ public:
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Attribute")
 	float MaxValue = 100;
+	// TODO(Hunter): Better way to do this?
+	UPROPERTY(EditDefaultsOnly, Category = "Attribute")
+	bool bSetToMaxOnMaxChange = false;
 	UPROPERTY(VisibleAnywhere, Category = "Attribute")
 	float CurrentValue = 0;
+	
 };
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )

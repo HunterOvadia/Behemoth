@@ -11,7 +11,7 @@
 #include "Components/BHInventoryComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Core/BehemothGameMode.h"
-#include "Serialization/StructuredArchiveFormatter.h"
+#include "TimerManager.h"
 
 ABehemothCharacter::ABehemothCharacter()
 {
@@ -19,6 +19,8 @@ ABehemothCharacter::ABehemothCharacter()
 
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
+	HealthRegenAmount = 10.0f;
+	HealthRegenRate = 3.0f;
 
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
@@ -78,14 +80,15 @@ void ABehemothCharacter::BeginPlay()
 		}
 	}
 
-	if(IsValid(InventoryComponent))
+	UWorld *World = GetWorld();
+	if(World != nullptr)
 	{
-		InventoryComponent->OnItemEquipped.AddDynamic(this, &ABehemothCharacter::OnItemEquipped);
-		InventoryComponent->OnItemUnEquipped.AddDynamic(this, &ABehemothCharacter::OnItemUnEquipped);
+		World->GetTimerManager().SetTimer(HealthRegenTimerHandle, this, &ABehemothCharacter::RegenerateHealthOverTime, HealthRegenRate, true);
 
-		UWorld *World = GetWorld();
-		if(World != nullptr)
+		if(IsValid(InventoryComponent))
 		{
+			InventoryComponent->OnItemEquipped.AddDynamic(this, &ABehemothCharacter::OnItemEquipped);
+			InventoryComponent->OnItemUnEquipped.AddDynamic(this, &ABehemothCharacter::OnItemUnEquipped);
 			ABehemothGameMode *GM = Cast<ABehemothGameMode>(GetWorld()->GetAuthGameMode());
 			if(IsValid(GM))
 			{
@@ -104,6 +107,7 @@ void ABehemothCharacter::BeginPlay()
 			}
 		}
 	}
+
 }
 
 
@@ -185,6 +189,17 @@ void ABehemothCharacter::UpdateArmorMesh(const FBHItemData& ItemData, const bool
 	if(IsValid(ComponentToUpdate))
 	{
 		ComponentToUpdate->SetStaticMesh(bIsEquipped ? ItemData.ItemMesh : nullptr);
+	}
+}
+
+void ABehemothCharacter::RegenerateHealthOverTime() const
+{
+	if(IsValid(AttributesComponent))
+	{
+		if(AttributesComponent->GetAttributeCurrent(Health) < AttributesComponent->GetAttributeMax(Health))
+		{
+			AttributesComponent->ModifyAttributeCurrent(Health, HealthRegenAmount);
+		}
 	}
 }
 
