@@ -15,8 +15,12 @@ AActor* UBHInteractionComponent::FindInteractableObject() const
 	UWorld *World = GetWorld();
 	if(World != nullptr)
 	{
-		FVector Start = GetOwner()->GetActorLocation();
-		FVector End = (Start + (GetOwner()->GetActorForwardVector() * InteractDistance));
+		FVector OutLocation;
+		FRotator OutRotation;
+		GetOwner()->GetActorEyesViewPoint(OutLocation, OutRotation);
+
+		FVector Start = OutLocation;
+		FVector End = (Start + (OutRotation.Vector() * InteractDistance));
 
 		FCollisionQueryParams CollisionParams;
 		CollisionParams.AddIgnoredActor(GetOwner());
@@ -26,6 +30,8 @@ AActor* UBHInteractionComponent::FindInteractableObject() const
 		{
 			return HitResult.GetActor();
 		}
+
+		DrawDebugLine(World, Start, End, FColor::Red, false, -1, 0, 1);
 	}
 
 	return nullptr;

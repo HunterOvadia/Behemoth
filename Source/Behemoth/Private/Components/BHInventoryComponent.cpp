@@ -3,6 +3,8 @@
 
 #include "Components/BHInventoryComponent.h"
 
+#include "Behemoth/Behemoth.h"
+
 UBHInventoryComponent::UBHInventoryComponent()
     : MaxInventorySlots(32)
     , UsedInventorySlots(0)
@@ -58,8 +60,20 @@ void UBHInventoryComponent::RemoveFromInventory(const FBHItemData& ItemData, con
 
 void UBHInventoryComponent::EquipItem(const FBHItemData& ItemData)
 {
+    // TODO(Hunter): Currently a bug with stats not recalculating properly when equipping an item in a slot that already has an item.
+    const bool HasItemEquippedInSlot = EquippedItems.Contains(ItemData.Type) && EquippedItems[ItemData.Type].ID > 0;
+    if(HasItemEquippedInSlot)
+    {
+        const FBHItemData& CurrentlyEquippedItemInSlot = EquippedItems[ItemData.Type];
+        if(CurrentlyEquippedItemInSlot)
+        {
+            UnEquipItem(CurrentlyEquippedItemInSlot);
+        }
+    }
+
     EquippedItems.Add(ItemData.Type, ItemData);
     RemoveFromInventory(ItemData, 1);
+
     
     OnItemEquipped.Broadcast(ItemData);
 }
@@ -68,7 +82,7 @@ void UBHInventoryComponent::UnEquipItem(const FBHItemData& ItemData)
 {
     EquippedItems.Remove(ItemData.Type);
     AddToInventory(ItemData, 1);
-    
+
     OnItemUnEquipped.Broadcast(ItemData);
 }
 
