@@ -4,9 +4,9 @@
 #include "Components/BHInventoryComponent.h"
 
 UBHInventoryComponent::UBHInventoryComponent()
+    : MaxInventorySlots(32)
+    , UsedInventorySlots(0)
 {
-    MaxInventorySlots = 32;
-    UsedInventorySlots = 0;
 }
 
 void UBHInventoryComponent::AddToInventory(const FBHItemData& ItemData, const int32 Amount)

@@ -69,6 +69,10 @@
             <e p="Items" t="Include">
               <e p="BHItemInfo.cpp" t="Include" />
             </e>
+            <e p="UI" t="Include">
+              <e p="BHEquipmentSlot.cpp" t="Include" />
+              <e p="BHUserWidget.cpp" t="Include" />
+            </e>
           </e>
           <e p="Public" t="Include">
             <e p="Character" t="Include">
@@ -83,6 +87,10 @@
             </e>
             <e p="Items" t="Include">
               <e p="BHItemInfo.h" t="Include" />
+            </e>
+            <e p="UI" t="Include">
+              <e p="BHEquipmentSlot.h" t="Include" />
+              <e p="BHUserWidget.h" t="Include" />
             </e>
           </e>
         </e>
