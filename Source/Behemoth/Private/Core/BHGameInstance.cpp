@@ -6,3 +6,9 @@
 UBHGameInstance::UBHGameInstance()
 {
 }
+
+FBHItemData* UBHGameInstance::GetItemByID(const uint32 ID) const
+{
+    check(ItemDatabase);
+    return ItemDatabase->FindRow<FBHItemData>(FName(FString::FromInt(ID)), "");
+}

@@ -9,6 +9,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/BHAttributesComponent.h"
 #include "Components/BHInventoryComponent.h"
+#include "Components/BHInteractionComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "TimerManager.h"
 
@@ -47,6 +48,7 @@ ABehemothCharacter::ABehemothCharacter()
 	/* ===== CUSTOM COMPONENTS ===== */
 	AttributesComponent = CreateDefaultSubobject<UBHAttributesComponent>(TEXT("AttributesComponent"));
 	InventoryComponent = CreateDefaultSubobject<UBHInventoryComponent>(TEXT("InventoryComponent"));
+	InteractionComponent = CreateDefaultSubobject<UBHInteractionComponent>(TEXT("InteractionComponent"));
 
 	/* ===== EQUIPMENT ===== */
 	HelmetMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("HelmetMesh"));
@@ -70,6 +72,7 @@ void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	PlayerInputComponent->BindAction("Inventory", IE_Released, this, &ABehemothCharacter::ToggleInventory);
 	PlayerInputComponent->BindAction("CharacterInfo", IE_Released, this, &ABehemothCharacter::ToggleCharacterInfo);
+	PlayerInputComponent->BindAction("Interact", IE_Released, this, &ABehemothCharacter::Interact);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ABehemothCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ABehemothCharacter::MoveRight);
@@ -181,6 +184,21 @@ void ABehemothCharacter::RegenerateHealthOverTime() const
 		if(AttributesComponent->GetAttributeCurrent(Health) < AttributesComponent->GetAttributeMax(Health))
 		{
 			AttributesComponent->ModifyAttributeCurrent(Health, HealthRegenAmount);
+		}
+	}
+}
+
+void ABehemothCharacter::Interact()
+{
+	if(IsValid(InteractionComponent))
+	{
+		const TScriptInterface<IBHInteractableInterface> CurrentInteractable = InteractionComponent->GetCurrentInteractable();
+		if(CurrentInteractable != nullptr)
+		{
+			if(IBHInteractableInterface::Execute_CanInteract(CurrentInteractable.GetObject()))
+			{
+				IBHInteractableInterface::Execute_OnInteract(CurrentInteractable.GetObject(), this);
+			}
 		}
 	}
 }

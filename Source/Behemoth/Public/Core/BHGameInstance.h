@@ -4,6 +4,8 @@
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
 #include "Engine/GameInstance.h"
+#include "Items/BHItemInfo.h"
+
 #include "BHGameInstance.generated.h"
 
 UCLASS()
@@ -15,7 +17,8 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = "Items")
     UDataTable *GetItemDatabase() const { return ItemDatabase; }
-
+	FBHItemData *GetItemByID(uint32 ID) const;
+	
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Database")
 	UDataTable *ItemDatabase;

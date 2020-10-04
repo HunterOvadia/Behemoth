@@ -42,10 +42,8 @@ struct FBHItemData : public FTableRowBase
 	FBHItemData();
 
 public:
-	friend bool operator==(const FBHItemData& Lhs, const FBHItemData& Rhs)
-	{
-		return Lhs.ID == Rhs.ID;
-	}
+	friend bool operator==(const FBHItemData& Lhs, const FBHItemData& Rhs) { return Lhs.ID == Rhs.ID; }
+	explicit operator bool() const { return ID > 0; }
 
 	
 public:

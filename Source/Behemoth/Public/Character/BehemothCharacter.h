@@ -17,7 +17,7 @@ public:
 
 	class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
-
+	class UBHInventoryComponent *GetInventoryComponent() const { return InventoryComponent; }
 protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void BeginPlay() override;
@@ -47,6 +47,9 @@ protected:
 	UFUNCTION()
 	void RegenerateHealthOverTime() const;
 
+	UFUNCTION()
+	void Interact();
+
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "UI")
 	TSubclassOf<class UUserWidget> PlayerHUDClass;
@@ -61,7 +64,9 @@ protected:
 	class UBHAttributesComponent *AttributesComponent;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
 	class UBHInventoryComponent *InventoryComponent;
-
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Interactable")
+	class UBHInteractionComponent *InteractionComponent;
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
 	class UStaticMeshComponent *HelmetMesh;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
