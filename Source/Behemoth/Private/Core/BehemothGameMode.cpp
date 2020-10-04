@@ -2,5 +2,4 @@
 
 ABehemothGameMode::ABehemothGameMode()
 {
-
 }
