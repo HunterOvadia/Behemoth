@@ -4,6 +4,6 @@
 #include "Items/BHItemInfo.h"
 
 FBHItemData::FBHItemData()
-    : ID(-1), ItemIcon(nullptr), Rarity(), Type()
+    : ID(-1), ItemIcon(nullptr), ItemMesh(nullptr), Rarity(), Type()
 {
 }

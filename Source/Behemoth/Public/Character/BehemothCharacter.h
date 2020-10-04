@@ -66,6 +66,11 @@ protected:
 	class UStaticMeshComponent *HelmetMesh;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
 	class UStaticMeshComponent *ChestMesh;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
+	class UStaticMeshComponent *PrimaryWeaponMesh;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
+	class UStaticMeshComponent *SecondaryWeaponMesh;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
 	float BaseTurnRate;

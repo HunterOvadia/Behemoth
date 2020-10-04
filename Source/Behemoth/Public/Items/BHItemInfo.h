@@ -28,6 +28,10 @@ enum EBHItemType
 	Hands,
 	Legs,
 	Feet,
+
+	// Weapons
+	PrimaryWeapon,
+	SecondaryWeapon,
 };
 
 
@@ -42,6 +46,7 @@ public:
 	{
 		return Lhs.ID == Rhs.ID;
 	}
+
 	
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
@@ -60,6 +65,4 @@ public:
 	TEnumAsByte<EBHItemType> Type;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TMap<TEnumAsByte<EBHAttributeType>, int32> Attributes;
-
-	
 };

@@ -22,6 +22,33 @@
         <e p="UE4.vcxproj" t="IncludeRecursive" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="Plugins" t="Include">
+        <e p="ElectronicNodes" t="Include">
+          <e p="ElectronicNodes.uplugin" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="Icon128.png" t="Include" />
+          </e>
+          <e p="Source" t="Include">
+            <e p="ElectronicNodes" t="Include">
+              <e p="ElectronicNodes.Build.cs" t="Include" />
+              <e p="Private" t="Include">
+                <e p="ElectronicNodes.cpp" t="Include" />
+                <e p="ENAnimGraphConnectionDrawingPolicy.cpp" t="Include" />
+                <e p="ENAnimGraphConnectionDrawingPolicy.h" t="Include" />
+                <e p="ENCommands.h" t="Include" />
+                <e p="ENConnectionDrawingPolicy.cpp" t="Include" />
+                <e p="ENConnectionDrawingPolicy.h" t="Include" />
+                <e p="ENPathDrawer.cpp" t="Include" />
+                <e p="ENPathDrawer.h" t="Include" />
+              </e>
+              <e p="Public" t="Include">
+                <e p="ElectronicNodes.h" t="Include" />
+                <e p="ElectronicNodesSettings.h" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="README.md" t="Include" />
       <e p="Source" t="Include">
         <e p="Behemoth" t="Include">

@@ -28,7 +28,12 @@ public:
 	void UpdateMaxValue(const float NewValueModificationAmount)
 	{
 		MaxValue += NewValueModificationAmount;
-		if(bSetToMaxOnMaxChange)
+		
+		if(CurrentValue > MaxValue)
+		{
+			SetCurrentValue(MaxValue);
+		}
+		else if(bSetToMaxOnMaxChange)
 		{
 			SetCurrentValue(MaxValue);
 		}
@@ -37,7 +42,12 @@ public:
 	void SetMaxValue(const float SetValue)
 	{
 		MaxValue = SetValue;
-		if(bSetToMaxOnMaxChange)
+		
+		if(CurrentValue > MaxValue)
+		{
+			SetCurrentValue(MaxValue);
+		}
+		else if(bSetToMaxOnMaxChange)
 		{
 			SetCurrentValue(MaxValue);
 		}

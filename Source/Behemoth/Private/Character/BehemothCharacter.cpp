@@ -40,14 +40,22 @@ ABehemothCharacter::ABehemothCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); 
 	FollowCamera->bUsePawnControlRotation = false;
 
+	/* ===== CUSTOM COMPONENTS ===== */
 	AttributesComponent = CreateDefaultSubobject<UBHAttributesComponent>(TEXT("AttributesComponent"));
 	InventoryComponent = CreateDefaultSubobject<UBHInventoryComponent>(TEXT("InventoryComponent"));
 
-
+	/* ===== EQUIPMENT ===== */
 	HelmetMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("HelmetMesh"));
 	HelmetMesh->SetupAttachment(GetMesh(), "HeadSocket");
+	
 	ChestMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ChestMesh"));
     ChestMesh->SetupAttachment(GetMesh(), "ChestSocket");
+	
+	PrimaryWeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PrimaryWeaponMesh"));
+	PrimaryWeaponMesh->SetupAttachment(GetMesh(), "PrimaryWeaponSocket");
+	
+	SecondaryWeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SecondaryWeaponMesh"));
+	SecondaryWeaponMesh->SetupAttachment(GetMesh(), "SecondaryWeaponSocket");
 }
 
 void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -84,30 +92,12 @@ void ABehemothCharacter::BeginPlay()
 	if(World != nullptr)
 	{
 		World->GetTimerManager().SetTimer(HealthRegenTimerHandle, this, &ABehemothCharacter::RegenerateHealthOverTime, HealthRegenRate, true);
-
 		if(IsValid(InventoryComponent))
 		{
 			InventoryComponent->OnItemEquipped.AddDynamic(this, &ABehemothCharacter::OnItemEquipped);
 			InventoryComponent->OnItemUnEquipped.AddDynamic(this, &ABehemothCharacter::OnItemUnEquipped);
-			ABehemothGameMode *GM = Cast<ABehemothGameMode>(GetWorld()->GetAuthGameMode());
-			if(IsValid(GM))
-			{
-				UDataTable *ItemDatabase = GM->GetItemDatabase();
-				if(IsValid(ItemDatabase))
-				{
-					FBHItemData *Item1 = GM->GetItemDatabase()->FindRow<FBHItemData>(FName("1"), "");
-					FBHItemData *Item2 = GM->GetItemDatabase()->FindRow<FBHItemData>(FName("2"), "");
-
-					if(Item1 != nullptr)
-					{
-						InventoryComponent->AddToInventory(*Item1);
-						InventoryComponent->AddToInventory(*Item2);
-					}
-				}
-			}
 		}
 	}
-
 }
 
 
@@ -165,25 +155,13 @@ void ABehemothCharacter::UpdateArmorMesh(const FBHItemData& ItemData, const bool
 	switch(ItemData.Type)
 	{
 		case Head:
-		{
-			if(IsValid(HelmetMesh))
-			{
-				ComponentToUpdate = HelmetMesh;
-			}
-			break;
-		}
+			ComponentToUpdate = HelmetMesh;
+			break;	
 		case Chest:
-		{
-			if(IsValid(ChestMesh))
-			{
-				ComponentToUpdate = ChestMesh;
-			}
+			ComponentToUpdate = ChestMesh;
 			break;
-		}
 		default:
-		{
 			break;
-		}
 	}
 
 	if(IsValid(ComponentToUpdate))
