@@ -83,5 +83,10 @@ protected:
 	float HealthRegenRate;
 
 	FTimerHandle HealthRegenTimerHandle;
+
+	static FName HeadSocketName;
+	static FName ChestSocketName;
+	static FName PrimaryWeaponSocketName;
+	static FName SecondaryWeaponSocketName;
 };
 

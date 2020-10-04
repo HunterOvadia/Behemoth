@@ -19,67 +19,31 @@ struct FBHAttribute
 	GENERATED_BODY()
 
 public:
-	void UpdateCurrentValue(const float ModificationValue)
-	{
-		CurrentValue += ModificationValue;
-		CurrentValue = FMath::Clamp(CurrentValue, 0.0f, MaxValue);
-	}
-
-	void UpdateMaxValue(const float NewValueModificationAmount)
-	{
-		MaxValue += NewValueModificationAmount;
-		
-		if(CurrentValue > MaxValue)
-		{
-			SetCurrentValue(MaxValue);
-		}
-		else if(bSetToMaxOnMaxChange)
-		{
-			SetCurrentValue(MaxValue);
-		}
-	}
-
-	void SetMaxValue(const float SetValue)
-	{
-		MaxValue = SetValue;
-		
-		if(CurrentValue > MaxValue)
-		{
-			SetCurrentValue(MaxValue);
-		}
-		else if(bSetToMaxOnMaxChange)
-		{
-			SetCurrentValue(MaxValue);
-		}
-	}
+	void UpdateValue(const float UpdateAmount);
+	void UpdateMax(const float UpdateAmount);
+	void SetValue(const float SetAmount);
+	void SetMax(const float SetAmount);
 	
-	void SetCurrentValue(const float SetValue)
-	{
-		CurrentValue = SetValue;
-		CurrentValue = FMath::Clamp(CurrentValue, 0.0f, MaxValue);
-	}
-
-	float GetMaxValue() const { return MaxValue; }
-	float GetCurrentValue() const { return CurrentValue; }
+	float GetValue() const { return Value; }
+	float GetMax() const { return Max; }
+	
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Attribute")
-	float MaxValue = 100;
+	float Max = 100;
+	UPROPERTY(VisibleAnywhere, Category = "Attribute")
+	float Value = 0;
+	
 	// TODO(Hunter): Better way to do this?
 	UPROPERTY(EditDefaultsOnly, Category = "Attribute")
 	bool bSetToMaxOnMaxChange = false;
-	UPROPERTY(VisibleAnywhere, Category = "Attribute")
-	float CurrentValue = 0;
-	
 };
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class BEHEMOTH_API UBHAttributesComponent : public UActorComponent
 {
 	GENERATED_BODY()
-
-public:	
-	UBHAttributesComponent();
 	
+public:		
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
 	float ModifyAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount);
 	UFUNCTION(BlueprintCallable, Category = "Attributes")

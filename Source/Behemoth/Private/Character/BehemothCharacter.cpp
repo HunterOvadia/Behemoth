@@ -10,8 +10,12 @@
 #include "Components/BHAttributesComponent.h"
 #include "Components/BHInventoryComponent.h"
 #include "Components/StaticMeshComponent.h"
-#include "Core/BehemothGameMode.h"
 #include "TimerManager.h"
+
+FName ABehemothCharacter::HeadSocketName = "HeadSocket"; 
+FName ABehemothCharacter::ChestSocketName = "ChestSocket"; 
+FName ABehemothCharacter::PrimaryWeaponSocketName = "PrimaryWeaponSocket"; 
+FName ABehemothCharacter::SecondaryWeaponSocketName = "SecondaryWeaponSocket"; 
 
 ABehemothCharacter::ABehemothCharacter()
 {
@@ -46,16 +50,16 @@ ABehemothCharacter::ABehemothCharacter()
 
 	/* ===== EQUIPMENT ===== */
 	HelmetMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("HelmetMesh"));
-	HelmetMesh->SetupAttachment(GetMesh(), "HeadSocket");
+	HelmetMesh->SetupAttachment(GetMesh(), HeadSocketName);
 	
 	ChestMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ChestMesh"));
-    ChestMesh->SetupAttachment(GetMesh(), "ChestSocket");
+    ChestMesh->SetupAttachment(GetMesh(), ChestSocketName);
 	
 	PrimaryWeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PrimaryWeaponMesh"));
-	PrimaryWeaponMesh->SetupAttachment(GetMesh(), "PrimaryWeaponSocket");
+	PrimaryWeaponMesh->SetupAttachment(GetMesh(), PrimaryWeaponSocketName);
 	
 	SecondaryWeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SecondaryWeaponMesh"));
-	SecondaryWeaponMesh->SetupAttachment(GetMesh(), "SecondaryWeaponSocket");
+	SecondaryWeaponMesh->SetupAttachment(GetMesh(), SecondaryWeaponSocketName);
 }
 
 void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -140,7 +144,7 @@ void ABehemothCharacter::RecalculateAttributesForItem(const FBHItemData& ItemDat
 {
 	if(IsValid(AttributesComponent))
 	{
-		for(const auto Attribute : ItemData.Attributes)
+		for(const auto& Attribute : ItemData.Attributes)
         {
 	        const float ModificationAmount = (bIsEquipped ? Attribute.Value : -Attribute.Value);
         	AttributesComponent->ModifyAttributeMax(Attribute.Key, ModificationAmount);
@@ -187,8 +191,8 @@ void ABehemothCharacter::MoveForward(const float Value)
 	{
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
-
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		
 		AddMovementInput(Direction, Value);
 	}
 }
@@ -199,8 +203,8 @@ void ABehemothCharacter::MoveRight(const float Value)
 	{
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
-	
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+		
 		AddMovementInput(Direction, Value);
 	}
 }

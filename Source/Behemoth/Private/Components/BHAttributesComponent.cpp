@@ -1,10 +1,39 @@
 #include "Components/BHAttributesComponent.h"
-
 #include "Behemoth/Behemoth.h"
 
-
-UBHAttributesComponent::UBHAttributesComponent()
+void FBHAttribute::UpdateValue(const float UpdateAmount)
 {
+    const float NewValue = (Value + UpdateAmount);
+    SetValue(NewValue);
+}
+
+void FBHAttribute::SetValue(const float SetAmount)
+{
+    Value = SetAmount;
+    Value = FMath::Clamp(Value, 0.0f, Max);
+}
+
+void FBHAttribute::UpdateMax(const float UpdateAmount)
+{
+    const float NewValue = (Max + UpdateAmount);
+    SetMax(NewValue);
+}
+
+void FBHAttribute::SetMax(const float SetAmount)
+{
+    Max = SetAmount;
+
+    if (Value > Max)
+    {
+        SetValue(Max);
+    }
+    else
+    {
+        if (bSetToMaxOnMaxChange)
+        {
+            SetValue(Max);
+        }
+    }
 }
 
 float UBHAttributesComponent::ModifyAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount)
@@ -16,8 +45,8 @@ float UBHAttributesComponent::ModifyAttributeCurrent(const TEnumAsByte<EBHAttrib
     }
 
     FBHAttribute& Attribute = Attributes[AttributeType];
-    Attribute.UpdateCurrentValue(ModifyAmount);
-    return Attribute.GetCurrentValue();
+    Attribute.UpdateValue(ModifyAmount);
+    return Attribute.GetValue();
 }
 
 float UBHAttributesComponent::SetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue)
@@ -29,8 +58,8 @@ float UBHAttributesComponent::SetAttributeCurrent(const TEnumAsByte<EBHAttribute
     }
 
     FBHAttribute& Attribute = Attributes[AttributeType];
-    Attribute.SetCurrentValue(SetValue);
-    return Attribute.GetCurrentValue();
+    Attribute.SetValue(SetValue);
+    return Attribute.GetValue();
 }
 
 float UBHAttributesComponent::ModifyAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount)
@@ -42,8 +71,8 @@ float UBHAttributesComponent::ModifyAttributeMax(const TEnumAsByte<EBHAttributeT
     }
 
     FBHAttribute& Attribute = Attributes[AttributeType];
-    Attribute.UpdateMaxValue(ModifyAmount);
-    return Attribute.GetMaxValue();
+    Attribute.UpdateMax(ModifyAmount);
+    return Attribute.GetMax();
 }
 
 float UBHAttributesComponent::SetAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue)
@@ -55,8 +84,8 @@ float UBHAttributesComponent::SetAttributeMax(const TEnumAsByte<EBHAttributeType
     }
 
     FBHAttribute& Attribute = Attributes[AttributeType];
-    Attribute.SetMaxValue(SetValue);
-    return Attribute.GetMaxValue();
+    Attributes[AttributeType].SetValue(SetValue);
+    return Attribute.GetMax();
 }
 
 float UBHAttributesComponent::GetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType) const
@@ -67,8 +96,7 @@ float UBHAttributesComponent::GetAttributeCurrent(const TEnumAsByte<EBHAttribute
         return -1.0f;
     }
 
-    const FBHAttribute Attribute = Attributes[AttributeType];
-    return Attribute.GetCurrentValue();
+    return Attributes[AttributeType].GetValue();
 }
 
 float UBHAttributesComponent::GetAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType) const
@@ -79,8 +107,7 @@ float UBHAttributesComponent::GetAttributeMax(const TEnumAsByte<EBHAttributeType
         return -1.0f;
     }
 
-    const FBHAttribute Attribute = Attributes[AttributeType];
-    return Attribute.GetMaxValue();
+    return Attributes[AttributeType].GetMax();
 }
 
 void UBHAttributesComponent::BeginPlay()
@@ -90,7 +117,7 @@ void UBHAttributesComponent::BeginPlay()
     for(auto& AttributePair : Attributes)
     {
         FBHAttribute& Attribute = AttributePair.Value;
-        Attribute.SetCurrentValue(Attribute.GetMaxValue());
+        Attribute.SetValue(Attribute.GetMax());
     }
 }
 
