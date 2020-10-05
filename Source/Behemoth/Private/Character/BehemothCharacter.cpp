@@ -146,7 +146,6 @@ void ABehemothCharacter::OnItemUnEquipped(const FBHItemData& ItemData)
 
 void ABehemothCharacter::RecalculateAttributesForItem(const FBHItemData& ItemData, const bool bIsEquipped) const
 {
-	// TODO(Hunter): Currently a bug with stats not recalculating properly when equipping an item in a slot that already has an item.
 	if(IsValid(AttributesComponent))
 	{
 		for(const auto& Attribute : ItemData.Attributes)

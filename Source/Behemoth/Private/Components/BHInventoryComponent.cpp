@@ -60,11 +60,10 @@ void UBHInventoryComponent::RemoveFromInventory(const FBHItemData& ItemData, con
 
 void UBHInventoryComponent::EquipItem(const FBHItemData& ItemData)
 {
-    // TODO(Hunter): Currently a bug with stats not recalculating properly when equipping an item in a slot that already has an item.
-    const bool HasItemEquippedInSlot = EquippedItems.Contains(ItemData.Type) && EquippedItems[ItemData.Type].ID > 0;
+    const bool HasItemEquippedInSlot = EquippedItems.Contains(ItemData.Type);
     if(HasItemEquippedInSlot)
     {
-        const FBHItemData& CurrentlyEquippedItemInSlot = EquippedItems[ItemData.Type];
+        const FBHItemData CurrentlyEquippedItemInSlot = EquippedItems[ItemData.Type];
         if(CurrentlyEquippedItemInSlot)
         {
             UnEquipItem(CurrentlyEquippedItemInSlot);
