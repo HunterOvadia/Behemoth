@@ -22,7 +22,7 @@ void FBHAttribute::Set(const float SetAmount)
 void FBHAttribute::SetMax(const float SetAmount)
 {
     MaxValue = SetAmount;
-    if (CurrentValue > MaxValue || bDoesSetCurrentToMaxOnMaxChange)
+    if (CurrentValue > MaxValue || bIsAlwaysMax)
     {
         Set(MaxValue);
     }

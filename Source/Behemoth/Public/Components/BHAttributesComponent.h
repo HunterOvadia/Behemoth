@@ -35,7 +35,7 @@ protected:
 	
 	// TODO(Hunter): Better way to do this?
 	UPROPERTY(EditDefaultsOnly, Category = "Attribute")
-	bool bDoesSetCurrentToMaxOnMaxChange = false;
+	bool bIsAlwaysMax = false;
 };
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
