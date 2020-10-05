@@ -19,23 +19,23 @@ struct FBHAttribute
 	GENERATED_BODY()
 
 public:
-	void UpdateValue(const float UpdateAmount);
-	void UpdateMax(const float UpdateAmount);
-	void SetValue(const float SetAmount);
+	void Modify(const float UpdateAmount);
+	void ModifyMax(const float UpdateAmount);
+	void Set(const float SetAmount);
 	void SetMax(const float SetAmount);
 	
-	float GetValue() const { return Value; }
-	float GetMax() const { return Max; }
+	float GetValue() const { return CurrentValue; }
+	float GetMax() const { return MaxValue; }
 	
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Attribute")
-	float Max = 100;
+	float MaxValue = 100;
 	UPROPERTY(VisibleAnywhere, Category = "Attribute")
-	float Value = 0;
+	float CurrentValue = 0;
 	
 	// TODO(Hunter): Better way to do this?
 	UPROPERTY(EditDefaultsOnly, Category = "Attribute")
-	bool bSetToMaxOnMaxChange = false;
+	bool bDoesSetCurrentToMaxOnMaxChange = false;
 };
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
@@ -45,15 +45,13 @@ class BEHEMOTH_API UBHAttributesComponent : public UActorComponent
 	
 public:		
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
-	float ModifyAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount);
+	void ModifyAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount);
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
-	float SetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue);
-
+	void SetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue);
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
-	float ModifyAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount);
+	void ModifyAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount);
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
-    float SetAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue);
-	
+    void SetAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue);
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
 	float GetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType) const;
 	UFUNCTION(BlueprintCallable, Category = "Attributes")

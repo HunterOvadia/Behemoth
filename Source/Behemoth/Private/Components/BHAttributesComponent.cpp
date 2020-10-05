@@ -1,91 +1,75 @@
 #include "Components/BHAttributesComponent.h"
 #include "Behemoth/Behemoth.h"
 
-void FBHAttribute::UpdateValue(const float UpdateAmount)
+void FBHAttribute::Modify(const float UpdateAmount)
 {
-    const float NewValue = (Value + UpdateAmount);
-    SetValue(NewValue);
+    const float NewValue = (CurrentValue + UpdateAmount);
+    Set(NewValue);
 }
 
-void FBHAttribute::SetValue(const float SetAmount)
+void FBHAttribute::ModifyMax(const float UpdateAmount)
 {
-    Value = SetAmount;
-    Value = FMath::Clamp(Value, 0.0f, Max);
-}
-
-void FBHAttribute::UpdateMax(const float UpdateAmount)
-{
-    const float NewValue = (Max + UpdateAmount);
+    const float NewValue = (MaxValue + UpdateAmount);
     SetMax(NewValue);
+}
+
+void FBHAttribute::Set(const float SetAmount)
+{
+    CurrentValue = SetAmount;
+    CurrentValue = FMath::Clamp(CurrentValue, 0.0f, MaxValue);
 }
 
 void FBHAttribute::SetMax(const float SetAmount)
 {
-    Max = SetAmount;
-
-    if (Value > Max)
+    MaxValue = SetAmount;
+    if (CurrentValue > MaxValue || bDoesSetCurrentToMaxOnMaxChange)
     {
-        SetValue(Max);
-    }
-    else
-    {
-        if (bSetToMaxOnMaxChange)
-        {
-            SetValue(Max);
-        }
+        Set(MaxValue);
     }
 }
 
-float UBHAttributesComponent::ModifyAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount)
+void UBHAttributesComponent::ModifyAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount)
 {
     if(!Attributes.Contains(AttributeType))
     {
         BH_LOG("Unable to find attribute to modify.")
-        return -1.0f;
+        return;
     }
 
-    FBHAttribute& Attribute = Attributes[AttributeType];
-    Attribute.UpdateValue(ModifyAmount);
-    return Attribute.GetValue();
+    Attributes[AttributeType].Modify(ModifyAmount);
 }
 
-float UBHAttributesComponent::SetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue)
+void UBHAttributesComponent::SetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue)
 {
     if(!Attributes.Contains(AttributeType))
     {
         BH_LOG("Unable to find attribute to set.")
-        return -1.0f;
+        return;
     }
 
-    FBHAttribute& Attribute = Attributes[AttributeType];
-    Attribute.SetValue(SetValue);
-    return Attribute.GetValue();
+    Attributes[AttributeType].Set(SetValue);
 }
 
-float UBHAttributesComponent::ModifyAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount)
+void UBHAttributesComponent::ModifyAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount)
 {
     if(!Attributes.Contains(AttributeType))
     {
         BH_LOG("Unable to find attribute to modify.")
-        return -1.0f;
+        return;
     }
 
-    FBHAttribute& Attribute = Attributes[AttributeType];
-    Attribute.UpdateMax(ModifyAmount);
-    return Attribute.GetMax();
+    Attributes[AttributeType].ModifyMax(ModifyAmount);
 }
 
-float UBHAttributesComponent::SetAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue)
+void UBHAttributesComponent::SetAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue)
 {
     if(!Attributes.Contains(AttributeType))
     {
         BH_LOG("Unable to find attribute to set.")
-        return -1.0f;
+        return;
     }
 
-    FBHAttribute& Attribute = Attributes[AttributeType];
-    Attributes[AttributeType].SetValue(SetValue);
-    return Attribute.GetMax();
+    Attributes[AttributeType].Set(SetValue);
 }
 
 float UBHAttributesComponent::GetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType) const
@@ -117,7 +101,7 @@ void UBHAttributesComponent::BeginPlay()
     for(auto& AttributePair : Attributes)
     {
         FBHAttribute& Attribute = AttributePair.Value;
-        Attribute.SetValue(Attribute.GetMax());
+        Attribute.Set(Attribute.GetMax());
     }
 }
 
