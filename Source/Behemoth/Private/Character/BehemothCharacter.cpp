@@ -14,10 +14,7 @@
 #include "TimerManager.h"
 #include "Behemoth/Behemoth.h"
 
-FName ABehemothCharacter::HeadSocketName = "HeadSocket"; 
-FName ABehemothCharacter::ChestSocketName = "ChestSocket"; 
-FName ABehemothCharacter::PrimaryWeaponSocketName = "PrimaryWeaponSocket"; 
-FName ABehemothCharacter::SecondaryWeaponSocketName = "SecondaryWeaponSocket"; 
+
 
 ABehemothCharacter::ABehemothCharacter()
 {
@@ -28,6 +25,8 @@ ABehemothCharacter::ABehemothCharacter()
 	HealthRegenAmount = 10.0f;
 	HealthRegenRate = 3.0f;
 
+
+	
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
@@ -52,6 +51,11 @@ ABehemothCharacter::ABehemothCharacter()
 	InteractionComponent = CreateDefaultSubobject<UBHInteractionComponent>(TEXT("InteractionComponent"));
 
 	/* ===== EQUIPMENT ===== */
+	HeadSocketName = "HeadSocket"; 
+	ChestSocketName = "ChestSocket"; 
+	PrimaryWeaponSocketName = "PrimaryWeaponSocket"; 
+	SecondaryWeaponSocketName = "SecondaryWeaponSocket";
+	
 	HelmetMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("HelmetMesh"));
 	HelmetMesh->SetupAttachment(GetMesh(), HeadSocketName);
 	
@@ -63,6 +67,13 @@ ABehemothCharacter::ABehemothCharacter()
 	
 	SecondaryWeaponMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SecondaryWeaponMesh"));
 	SecondaryWeaponMesh->SetupAttachment(GetMesh(), SecondaryWeaponSocketName);
+
+	ArmorMeshComponentsMap =
+	{
+		{ Head, HelmetMesh },
+		{ Chest, ChestMesh },
+		{ PrimaryWeapon, PrimaryWeaponMesh }
+	};
 }
 
 void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -120,8 +131,6 @@ float ABehemothCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Dam
 	return DamageTaken;
 }
 
-
-
 void ABehemothCharacter::TurnAtRate(const float Rate)
 {
 	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
@@ -160,16 +169,9 @@ void ABehemothCharacter::RecalculateAttributesForItem(const FBHItemData& ItemDat
 void ABehemothCharacter::UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped) const
 {
 	UStaticMeshComponent *ComponentToUpdate = nullptr;
-	switch(ItemData.Type)
+	if(ArmorMeshComponentsMap.Find(ItemData.Type))
 	{
-		case Head:
-			ComponentToUpdate = HelmetMesh;
-			break;	
-		case Chest:
-			ComponentToUpdate = ChestMesh;
-			break;
-		default:
-			break;
+		ComponentToUpdate = ArmorMeshComponentsMap[ItemData.Type];
 	}
 
 	if(IsValid(ComponentToUpdate))

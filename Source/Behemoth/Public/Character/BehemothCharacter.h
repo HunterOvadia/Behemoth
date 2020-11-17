@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "Items/BHItemInfo.h"
+#include "Items/BHItemData.h"
 #include "BehemothCharacter.generated.h"
 
 struct FBHItemData;
@@ -76,7 +76,18 @@ protected:
 	class UStaticMeshComponent *PrimaryWeaponMesh;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
 	class UStaticMeshComponent *SecondaryWeaponMesh;
-	
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
+	FName HeadSocketName;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
+	FName ChestSocketName;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
+	FName PrimaryWeaponSocketName;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
+	FName SecondaryWeaponSocketName;
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Equipment")
+	TMap<TEnumAsByte<EBHItemType>, UStaticMeshComponent *> ArmorMeshComponentsMap;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
 	float BaseTurnRate;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Camera")
@@ -88,10 +99,5 @@ protected:
 	float HealthRegenRate;
 
 	FTimerHandle HealthRegenTimerHandle;
-
-	static FName HeadSocketName;
-	static FName ChestSocketName;
-	static FName PrimaryWeaponSocketName;
-	static FName SecondaryWeaponSocketName;
 };
 

@@ -4,7 +4,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
 #include "Engine/GameInstance.h"
-#include "Items/BHItemInfo.h"
+#include "Items/BHItemData.h"
 
 #include "BHGameInstance.generated.h"
 

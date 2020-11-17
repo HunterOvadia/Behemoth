@@ -1,11 +1,13 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Items/BHItemInfo.h"
+#include "Items/BHItemData.h"
 #include "BHInventoryComponent.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemEquippedSignature, const FBHItemData&, ItemData);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemUnEquippedSignature, const FBHItemData&, ItemData);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemAddedSignature, const FBHItemData&, ItemData, const float, Amount);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemRemovedSignature, const FBHItemData&, ItemData, const float, Amount);
 
 USTRUCT(BlueprintType)
 struct FBHInventoryItem
@@ -18,7 +20,8 @@ struct FBHInventoryItem
 	}
 
 	FBHInventoryItem(const FBHItemData& ItemData, const int32 Amount)
-		: Data(ItemData), Count(Amount)
+		: Data(ItemData)
+		, Count(Amount)
 	{
 	}
 	
@@ -54,12 +57,16 @@ public:
 	FOnItemEquippedSignature OnItemEquipped;
 	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnItemEquippedSignature OnItemUnEquipped;
+	UPROPERTY(BlueprintAssignable, Category = "Events")
+	FOnItemAddedSignature OnItemAdded;
+	UPROPERTY(BlueprintAssignable, Category = "Events")
+	FOnItemRemovedSignature OnItemRemoved;
 	
 protected:
 	/* Inventory */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
 	TMap<int32, FBHInventoryItem> Inventory;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	int32 MaxInventorySlots;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
 	int32 UsedInventorySlots;

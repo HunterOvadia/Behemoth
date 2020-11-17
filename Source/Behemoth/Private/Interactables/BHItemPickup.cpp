@@ -2,12 +2,8 @@
 
 
 #include "Interactables/BHItemPickup.h"
-
-
-
 #include "Character/BehemothCharacter.h"
 #include "Components/BHInventoryComponent.h"
-#include "Core/BehemothGameMode.h"
 #include "Core/BHGameInstance.h"
 
 void ABHItemPickup::BeginPlay()

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Interactables/BHInteractableBase.h"
-#include "Items/BHItemInfo.h"
+#include "Items/BHItemData.h"
 
 #include "BHItemPickup.generated.h"
 

@@ -3,8 +3,6 @@
 
 #include "Components/BHInventoryComponent.h"
 
-#include "Behemoth/Behemoth.h"
-
 UBHInventoryComponent::UBHInventoryComponent()
     : MaxInventorySlots(32)
     , UsedInventorySlots(0)
@@ -19,15 +17,16 @@ void UBHInventoryComponent::AddToInventory(const FBHItemData& ItemData, const in
         int32& ItemCount = Inventory[ItemData.ID].Count;
         ++ItemCount;
     }
-    else
+    else // NOTE(Hunter): If we do not have the item in our inventory, make a new one with the amount
     {
         if(UsedInventorySlots < MaxInventorySlots)
         {
-            // NOTE(Hunter): If we do not have the item in our inventory, make a new one with the amount
             Inventory.Add(ItemData.ID, FBHInventoryItem(ItemData, Amount));
             ++UsedInventorySlots;
         }
     }
+
+    OnItemAdded.Broadcast(ItemData, Amount);
 }
 
 void UBHInventoryComponent::RemoveFromInventory(const FBHItemData& ItemData, const int32 Amount)
@@ -49,12 +48,13 @@ void UBHInventoryComponent::RemoveFromInventory(const FBHItemData& ItemData, con
                 --UsedInventorySlots;
             }
         }
-        else
+        else // NOTE(Hunter): If we only have 1 item, just remove it.
         {
-            // NOTE(Hunter): If we only have 1 item, just remove it.
             Inventory.Remove(ItemData.ID);
             --UsedInventorySlots;
         }
+
+        OnItemRemoved.Broadcast(ItemData, Amount);
     }
 }
 
@@ -73,7 +73,6 @@ void UBHInventoryComponent::EquipItem(const FBHItemData& ItemData)
     EquippedItems.Add(ItemData.Type, ItemData);
     RemoveFromInventory(ItemData, 1);
 
-    
     OnItemEquipped.Broadcast(ItemData);
 }
 

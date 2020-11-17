@@ -18,7 +18,7 @@ public:
 	
 protected:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-	AActor *FindInteractableObject() const;
+	class ABHInteractableBase *FindInteractableObject() const;
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Interaction")

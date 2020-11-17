@@ -1,16 +1,16 @@
 #include "Components/BHInteractionComponent.h"
-
+#include "Interactables/BHInteractableBase.h"
 #include "DrawDebugHelpers.h"
 #include "Interactables/BHInteractableInterface.h"
 
 
 UBHInteractionComponent::UBHInteractionComponent()
+	: InteractDistance(200.0f)
 {
-	InteractDistance = 200.0f;
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
-AActor* UBHInteractionComponent::FindInteractableObject() const
+ABHInteractableBase* UBHInteractionComponent::FindInteractableObject() const
 {
 	UWorld *World = GetWorld();
 	if(World != nullptr)
@@ -28,10 +28,11 @@ AActor* UBHInteractionComponent::FindInteractableObject() const
 		FHitResult HitResult;
 		if(World->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, CollisionParams))
 		{
-			return HitResult.GetActor();
+			if(ABHInteractableBase *InteractableResult = Cast<ABHInteractableBase>(HitResult.GetActor()))
+			{
+				return InteractableResult;
+			}
 		}
-
-		DrawDebugLine(World, Start, End, FColor::Red, false, -1, 0, 1);
 	}
 
 	return nullptr;
@@ -41,8 +42,13 @@ void UBHInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickType
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	if(AActor *CurrentHit = FindInteractableObject())
+	if(ABHInteractableBase *CurrentHit = FindInteractableObject())
 	{
+		if(UStaticMeshComponent *HitMesh = CurrentHit->GetMesh())
+		{
+			HitMesh->SetRenderCustomDepth(true);
+		}
+		
 		IBHInteractableInterface *Interactable = Cast<IBHInteractableInterface>(CurrentHit);
 		if(Interactable != nullptr && CurrentHit != CurrentInteractable.GetObject())
 		{
@@ -54,6 +60,14 @@ void UBHInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickType
 	{
 		if(CurrentInteractable != nullptr)
 		{
+			if(ABHInteractableBase *InteractableBase = Cast<ABHInteractableBase>(CurrentInteractable.GetObject()))
+			{
+				if(UStaticMeshComponent *InteractableMesh = InteractableBase->GetMesh())
+				{
+					InteractableMesh->SetRenderCustomDepth(false);
+				}
+			}
+			
 			CurrentInteractable = nullptr;
 		}
 	}

@@ -61,13 +61,20 @@
             </e>
             <e p="Components" t="Include">
               <e p="BHAttributesComponent.cpp" t="Include" />
+              <e p="BHInteractionComponent.cpp" t="Include" />
               <e p="BHInventoryComponent.cpp" t="Include" />
             </e>
             <e p="core" t="Include">
               <e p="BehemothGameMode.cpp" t="Include" />
+              <e p="BHGameInstance.cpp" t="Include" />
+            </e>
+            <e p="Interactables" t="Include">
+              <e p="BHInteractableBase.cpp" t="Include" />
+              <e p="BHInteractableInterface.cpp" t="Include" />
+              <e p="BHItemPickup.cpp" t="Include" />
             </e>
             <e p="Items" t="Include">
-              <e p="BHItemInfo.cpp" t="Include" />
+              <e p="BHItemData.cpp" t="Include" />
             </e>
           </e>
           <e p="Public" t="Include">
@@ -76,13 +83,20 @@
             </e>
             <e p="Components" t="Include">
               <e p="BHAttributesComponent.h" t="Include" />
+              <e p="BHInteractionComponent.h" t="Include" />
               <e p="BHInventoryComponent.h" t="Include" />
             </e>
             <e p="core" t="Include">
               <e p="BehemothGameMode.h" t="Include" />
+              <e p="BHGameInstance.h" t="Include" />
+            </e>
+            <e p="Interactables" t="Include">
+              <e p="BHInteractableBase.h" t="Include" />
+              <e p="BHInteractableInterface.h" t="Include" />
+              <e p="BHItemPickup.h" t="Include" />
             </e>
             <e p="Items" t="Include">
-              <e p="BHItemInfo.h" t="Include" />
+              <e p="BHItemData.h" t="Include" />
             </e>
           </e>
         </e>

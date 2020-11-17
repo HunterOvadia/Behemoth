@@ -3,14 +3,47 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2f5ed499-4274-4a36-ba15-f1d2ef9cf051" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Behemoth/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Behemoth/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Behemoth/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Behemoth/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Character/BP_BehemothCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Character/BP_BehemothCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Data/DT_Items.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Data/DT_Items.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Interactables/BP_PickupHelm.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Interactables/BP_PickupHelm.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/Inventory/W_Inventory.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/Inventory/W_Inventory.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/MainHUD/W_PlayerHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/MainHUD/W_PlayerHUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Behemoth/Private/Character/BehemothCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Private/Character/BehemothCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHAttributesComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHAttributesComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInteractionComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInteractionComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInventoryComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Private/Interactables/BHItemPickup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Private/Interactables/BHItemPickup.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Private/Items/BHItemInfo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Private/Items/BHItemData.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Character/BehemothCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Character/BehemothCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHAttributesComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHAttributesComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInteractionComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInteractionComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInventoryComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Core/BHGameInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Core/BHGameInstance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHInteractableBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHInteractableBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHItemPickup.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHItemPickup.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemData.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +65,11 @@
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/UObject/UnrealNames.inl" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/MovieScene/TemplateSequence/Source/TemplateSequence/TemplateSequence.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/UObject/WeakObjectPtrTemplates.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHInteractableInterface.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Containers/BitArray.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Interactables/BHInteractableInterface.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Containers/ContainerAllocationPolicies.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInventoryComponent.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Classes/Engine/World.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Containers/EnumAsByte.h" root0="FORCE_HIGHLIGHTING" />
@@ -44,6 +82,7 @@
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Containers/Map.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Developer/LogVisualizer/Private/VisualLoggerTimeSliderController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/ClothPainter/Private/ClothMeshAdapter.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Containers/Set.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/UnrealEd/Private/PlayLevel.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Classes/Components/StaticMeshComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/CoreUObject/Public/UObject/Object.h" root0="FORCE_HIGHLIGHTING" />
@@ -59,6 +98,7 @@
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/BlueprintGraph/Private/BlueprintGraphPanelPinFactory.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Experimental/GeometryCollectionPlugin/Source/GeometryCollectionEditor/Private/GeometryCollection/GeometryCollectionCommands.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/LocalPlayer.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Behemoth.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Behemoth/Behemoth.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Behemoth/Behemoth.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/GenericPlatform/GenericPlatform.h" root0="FORCE_HIGHLIGHTING" />
@@ -70,6 +110,7 @@
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Experimental/ChaosEditor/Source/FractureEditor/Private/FractureEditorMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/UnrealEd/Classes/Factories/FbxSceneImportOptionsStaticMesh.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Public/Net/UnrealNetwork.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/Actor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/PlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/MovieScene/MovieRenderPipeline/Source/MovieRenderPipelineCore/Private/MovieRenderOverlappedImage.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Developer/Concert/ConcertSync/ConcertSyncClient/Source/ConcertSyncUI/Private/SPackageDetails.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -79,13 +120,17 @@
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Classes/Engine/DataTable.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Landscape/Private/LandscapeEditInterface.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Components/BHAttributesComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Interactables/BHItemPickup.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHItemPickup.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Editor/MaterialAnalyzer/Source/Private/SMaterialAnalyzer.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Components/BHAttributesComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/HAL/Platform.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Math/Quat.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/GameMenuBuilder/Private/GameMenuBuilderStyle.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/BehaviorTreeEditor/Private/BehaviorTreeEditor.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/Blueprint.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Classes/Engine/GameInstance.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/SceneOutliner/Private/SSceneOutliner.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/EnvironmentQueryEditor/Private/EnvironmentQueryGraphNode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Public/GeneratedCodeHelpers.h" root0="FORCE_HIGHLIGHTING" />
@@ -93,28 +138,39 @@
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Online/OnlineSubsystemFacebook/Source/Private/OnlineSubsystemFacebookTypes.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/UMG/Private/Components/TreeView.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/UndoHistory/Private/Widgets/SUndoHistory.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/Collision/SceneQuery.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/Collision/WorldCollision.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/Kismet/Private/BlueprintDebugger.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/SlateCore/Public/Styling/SlateColor.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHInteractableBase.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/FoliageEdit/Private/FoliageEdMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/DataTableFunctionLibrary.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Developer/Profiler/Private/ProfilerDataSource.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Interactables/BHInteractableBase.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Shaders/Public/Platform.ush" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/Compositing/OpenColorIO/Source/OpenColorIO/Public/OpenColorIOShared.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UE4Editor/Inc/Behemoth/BHInteractableInterface.gen.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInteractionComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInteractionComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Misc/AssertionMacros.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/DecalActor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/BlueprintGraph/Public/BlueprintNodeTemplateCache.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Core/Public/Templates/Tuple.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Developer/StandaloneRenderer/Private/Windows/D3D/SlateD3DTextureManager.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UE4Editor/Inc/Behemoth/BHItemInfo.gen.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Items/BHItemInfo.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemInfo.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Items/BHItemData.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemData.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/UMG/Private/UserWidget.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/ThirdParty/GoogleInstantPreview/ip_shared.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Public/Animation/AnimNotifyQueue.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/RHI/Private/Windows/WindowsDynamicRHI.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UE4Editor/Inc/Behemoth/BehemothCharacter.gen.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Private/FontFace.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Classes/Engine/SkeletalMesh.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Plugins/VirtualProduction/DataCharts/DataCharts.uplugin" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Private/Core/BHGameInstance.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/Behemoth/Public/Core/BHGameInstance.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Developer/StandaloneRenderer/Private/OpenGL/SlateOpenGLTextureManager.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Runtime/Engine/Classes/Components/ActorComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/BlueprintGraph/Classes/K2Node_GetDataTableRow.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/UnrealEd/Private/Toolkits/SGlobalTabSwitchingDialog.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../UE_4.25/Engine/Source/Editor/Sequencer/Private/SKeyNavigationButtons.h" root0="FORCE_HIGHLIGHTING" />
@@ -130,21 +186,32 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Source/Behemoth/Behemoth.Build.cs" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Behemoth.h" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Core/BehemothGameMode.h" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Core/BehemothGameMode.cpp" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInventoryComponent.h" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Private/UI/BHUserWidget.cpp" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Private/Items/BHItemInfo.cpp" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInventoryComponent.cpp" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Public/UI/BHUserWidget.h" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Private/UI/BHEquipmentSlot.cpp" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Public/UI/BHEquipmentSlot.h" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Character/BehemothCharacter.h" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Character/BehemothCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Core/BehemothGameMode.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Core/BehemothGameMode.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Interactables/BHInteractableInterface.cpp" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemInfo.h" />
-        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHAttributesComponent.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Core/BHGameInstance.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Core/BHGameInstance.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHItemPickup.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHInteractableInterface.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Behemoth.h" />
         <option value="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHAttributesComponent.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHAttributesComponent.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInventoryComponent.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInventoryComponent.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Interactables/BHItemPickup.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Interactables/BHInteractableBase.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Items/BHItemData.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Components/BHInteractionComponent.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Interactables/BHInteractableBase.h" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Components/BHInteractionComponent.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Private/Character/BehemothCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/Behemoth/Public/Character/BehemothCharacter.h" />
       </list>
     </option>
   </component>
@@ -393,7 +460,12 @@
       <workItem from="1601684005469" duration="11030000" />
       <workItem from="1601769337715" duration="3583000" />
       <workItem from="1601773159201" duration="2817000" />
-      <workItem from="1601830766113" duration="2426000" />
+      <workItem from="1601830766113" duration="4213000" />
+      <workItem from="1601837252060" duration="7350000" />
+      <workItem from="1601933821191" duration="4306000" />
+      <workItem from="1604799229159" duration="150000" />
+      <workItem from="1605565166347" duration="4837000" />
+      <workItem from="1605570848700" duration="1586000" />
     </task>
     <servers />
   </component>
@@ -402,101 +474,125 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state width="590" height="464" key="DebuggerActiveHint" timestamp="1601686688747">
+    <state width="590" height="464" key="DebuggerActiveHint" timestamp="1601934790652">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="590" height="464" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601686688747" />
-    <state width="1877" height="121" key="GridCell.Tab.0.bottom" timestamp="1601835009947">
+    <state width="590" height="464" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601934790652" />
+    <state width="1877" height="119" key="GridCell.Tab.0.bottom" timestamp="1605572410730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009947" />
-    <state width="1877" height="121" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601830833542" />
-    <state width="1877" height="121" key="GridCell.Tab.0.center" timestamp="1601835009947">
+    <state width="1877" height="119" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410730" />
+    <state width="1877" height="119" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.0.center" timestamp="1605572410730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009947" />
-    <state width="1877" height="121" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601830833542" />
-    <state width="1877" height="121" key="GridCell.Tab.0.left" timestamp="1601835009947">
+    <state width="1877" height="119" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410730" />
+    <state width="1877" height="119" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.0.left" timestamp="1605572410730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009947" />
-    <state width="1877" height="121" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601830833542" />
-    <state width="1877" height="121" key="GridCell.Tab.0.right" timestamp="1601835009947">
+    <state width="1877" height="119" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410730" />
+    <state width="1877" height="119" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686938" />
+    <state width="1877" height="119" key="GridCell.Tab.0.right" timestamp="1605572410730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009947" />
-    <state width="1877" height="121" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601830833542" />
-    <state width="1877" height="121" key="GridCell.Tab.1.bottom" timestamp="1601835009948">
+    <state width="1877" height="119" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410730" />
+    <state width="1877" height="119" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.1.bottom" timestamp="1605572410592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009948" />
-    <state width="1877" height="121" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220711" />
-    <state width="1877" height="121" key="GridCell.Tab.1.center" timestamp="1601835009947">
+    <state width="1877" height="119" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601843486729" />
+    <state width="1877" height="119" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410591" />
+    <state width="1877" height="119" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.1.center" timestamp="1605572410591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009947" />
-    <state width="1877" height="121" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220711" />
-    <state width="1877" height="121" key="GridCell.Tab.1.left" timestamp="1601835009947">
+    <state width="1877" height="119" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601843486729" />
+    <state width="1877" height="119" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410591" />
+    <state width="1877" height="119" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.1.left" timestamp="1605572410591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009947" />
-    <state width="1877" height="121" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220711" />
-    <state width="1877" height="121" key="GridCell.Tab.1.right" timestamp="1601835009947">
+    <state width="1877" height="119" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601843486729" />
+    <state width="1877" height="119" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410591" />
+    <state width="1877" height="119" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.1.right" timestamp="1605572410591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009947" />
-    <state width="1877" height="121" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220711" />
-    <state width="1877" height="121" key="GridCell.Tab.2.bottom" timestamp="1601835009948">
+    <state width="1877" height="119" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601843486729" />
+    <state width="1877" height="119" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410591" />
+    <state width="1877" height="119" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.2.bottom" timestamp="1605572410592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009948" />
-    <state width="1877" height="121" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220712" />
-    <state width="1877" height="121" key="GridCell.Tab.2.center" timestamp="1601835009948">
+    <state width="1877" height="119" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410592" />
+    <state width="1877" height="119" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.2.center" timestamp="1605572410592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009948" />
-    <state width="1877" height="121" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220712" />
-    <state width="1877" height="121" key="GridCell.Tab.2.left" timestamp="1601835009948">
+    <state width="1877" height="119" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410592" />
+    <state width="1877" height="119" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.2.left" timestamp="1605572410592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009948" />
-    <state width="1877" height="121" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220712" />
-    <state width="1877" height="121" key="GridCell.Tab.2.right" timestamp="1601835009948">
+    <state width="1877" height="119" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410592" />
+    <state width="1877" height="119" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.2.right" timestamp="1605572410592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009948" />
-    <state width="1877" height="121" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220712" />
-    <state width="1877" height="121" key="GridCell.Tab.3.bottom" timestamp="1601835009948">
+    <state width="1877" height="119" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410592" />
+    <state width="1877" height="119" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.3.bottom" timestamp="1605572410592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009948" />
-    <state width="1877" height="121" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220712" />
-    <state width="1877" height="121" key="GridCell.Tab.3.center" timestamp="1601835009948">
+    <state width="1877" height="119" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410592" />
+    <state width="1877" height="119" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.3.center" timestamp="1605572410592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009948" />
-    <state width="1877" height="121" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220712" />
-    <state width="1877" height="121" key="GridCell.Tab.3.left" timestamp="1601835009948">
+    <state width="1877" height="119" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410592" />
+    <state width="1877" height="119" key="GridCell.Tab.3.center/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.3.left" timestamp="1605572410592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009948" />
-    <state width="1877" height="121" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220712" />
-    <state width="1877" height="121" key="GridCell.Tab.3.right" timestamp="1601835009948">
+    <state width="1877" height="119" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410592" />
+    <state width="1877" height="119" key="GridCell.Tab.3.left/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
+    <state width="1877" height="119" key="GridCell.Tab.3.right" timestamp="1605572410592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="121" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601835009948" />
-    <state width="1877" height="121" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601815220712" />
+    <state width="1877" height="119" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572410592" />
+    <state width="1877" height="119" key="GridCell.Tab.3.right/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1602274686939" />
     <state x="2381" y="165" key="SettingsEditor" timestamp="1601776980533">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601238230850" />
     <state x="2381" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@1920.0.1920.1040" timestamp="1601776980533" />
+    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1601934790650">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601934790650" />
+    <state x="579" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605572362696">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="579" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605572362696" />
     <state x="2182" y="253" width="1296" height="534" key="find.popup" timestamp="1601830812957">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -506,10 +602,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601592139361" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601770356125">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601841100734">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601770356125" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601841100734" />
+    <state x="682" y="433" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1601837083390">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="682" y="433" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040/1920.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1601837083390" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
