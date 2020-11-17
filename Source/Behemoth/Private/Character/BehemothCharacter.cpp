@@ -25,8 +25,6 @@ ABehemothCharacter::ABehemothCharacter()
 	HealthRegenAmount = 10.0f;
 	HealthRegenRate = 3.0f;
 
-
-	
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
