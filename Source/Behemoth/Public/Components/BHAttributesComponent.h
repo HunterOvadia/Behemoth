@@ -52,6 +52,7 @@ public:
 	void ModifyAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float ModifyAmount);
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
     void SetAttributeMax(const TEnumAsByte<EBHAttributeType> AttributeType, const float SetValue);
+	
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
 	float GetAttributeCurrent(const TEnumAsByte<EBHAttributeType> AttributeType) const;
 	UFUNCTION(BlueprintCallable, Category = "Attributes")

@@ -155,19 +155,8 @@ void ABehemothCharacter::OnItemUnEquipped(const FBHItemData& ItemData)
 	ServerRecalculateAttributesForItem(ItemData, false);
 }
 
-
-void ABehemothCharacter::RecalculateAttributesForItem(const FBHItemData& ItemData, const bool bIsEquipped) const
-{
-	if(IsValid(AttributesComponent))
-	{
-		for(const auto& Attribute : ItemData.Attributes)
-		{
-			const float ModificationAmount = (bIsEquipped ? Attribute.Amount : -Attribute.Amount);
-			AttributesComponent->ModifyAttributeMax(Attribute.Type, ModificationAmount);
-		}
-	}
-}
-
+// UPDATE(Hunter): For this scenario, I just made our calls to the AttributeComponent Server/Client instead of the modifications themselves
+// as it would add a lot more mess to the project
 void ABehemothCharacter::RegenerateHealthOverTime() const
 {
 	if(IsValid(AttributesComponent))
@@ -196,26 +185,34 @@ bool ABehemothCharacter::ClientRegenerateHealthOverTime_Validate()
 	return true;
 }
 
-
+// UPDATE(Hunter): For this scenario, I just made our calls to the AttributeComponent Server/Client instead of the modifications themselves
+// as it would add a lot more mess to the project
+void ABehemothCharacter::RecalculateAttributesForItem(const FBHItemData& ItemData, const bool bIsEquipped) const
+{
+	if(IsValid(AttributesComponent))
+	{
+		for(const auto& Attribute : ItemData.Attributes)
+		{
+			const float ModificationAmount = (bIsEquipped ? Attribute.Amount : -Attribute.Amount);
+			AttributesComponent->ModifyAttributeMax(Attribute.Type, ModificationAmount);
+		}
+	}
+}
 void ABehemothCharacter::ServerRecalculateAttributesForItem_Implementation(const FBHItemData& ItemData, const bool bIsEquipped) const
 {
 	RecalculateAttributesForItem(ItemData, bIsEquipped);
 	ClientRecalculateAttributesForItem(ItemData, bIsEquipped);
 }
-
-bool ABehemothCharacter::ServerRecalculateAttributesForItem_Validate(const FBHItemData& ItemData,
-    const bool bIsEquipped)
+bool ABehemothCharacter::ServerRecalculateAttributesForItem_Validate(const FBHItemData& ItemData, const bool bIsEquipped)
 {
 	return true;
 }
-
-
 void ABehemothCharacter::ClientRecalculateAttributesForItem_Implementation(const FBHItemData& ItemData, const bool bIsEquipped) const
 {
 	RecalculateAttributesForItem(ItemData, bIsEquipped);
 }
 
-
+// UPDATE(Hunter): Multicast our armor update so the server and clients can see our sweet equipment!
 void ABehemothCharacter::MulticastUpdateArmorMesh_Implementation(const FBHItemData& ItemData, const bool bIsEquipped) const
 {
 	UStaticMeshComponent *ComponentToUpdate = nullptr;
@@ -230,8 +227,7 @@ void ABehemothCharacter::MulticastUpdateArmorMesh_Implementation(const FBHItemDa
 	}
 }
 
-
-
+// UPDATE(Hunter): Serverside Interaction
 void ABehemothCharacter::ServerInteract_Implementation()
 {
 	if(IsValid(InteractionComponent))
@@ -246,7 +242,6 @@ void ABehemothCharacter::ServerInteract_Implementation()
 		}
 	}
 }
-
 bool ABehemothCharacter::ServerInteract_Validate()
 {
 	return true;

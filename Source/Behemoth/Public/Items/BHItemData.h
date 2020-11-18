@@ -73,7 +73,8 @@ public:
 	TEnumAsByte<EBHItemRarity> Rarity;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EBHItemType> Type;
+
+	// UPDATE(Hunter): Had to change this to an array because TMap's can't be replicated
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<FAttributeData> Attributes;
-	//TMap<TEnumAsByte<EBHAttributeType>, int32> Attributes;
 };
