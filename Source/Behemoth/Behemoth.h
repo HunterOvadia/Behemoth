@@ -4,5 +4,11 @@
 
 #include "CoreMinimal.h"
 
+void BH_DebugPrintStringToScreen(UWorld *World, const FString& InString);
+
 #define BH_LOG(text) UE_LOG(LogTemp, Warning, TEXT(text));
-#define BG_LOG_SCREEN(text) if(GEngine) GEngine->AddOnScreenDebugMessage(-1, 1f, FColor::Red, TEXT(text));
+#if UE_BUILD_DEBUG || UE_BUILD_DEVELOPMENT
+#define BH_LOG_SCREEN(World, String) { BH_DebugPrintStringToScreen(World, String); }
+#else
+#define BH_LOG_SCREEN(x)
+#endif
