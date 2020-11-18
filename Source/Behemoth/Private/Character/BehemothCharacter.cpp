@@ -104,7 +104,6 @@ void ABehemothCharacter::BeginPlay()
 			PlayerHUD->AddToViewport();
 		}
 	}
-
 	UWorld *World = GetWorld();
 	if(World != nullptr)
 	{
@@ -189,16 +188,33 @@ void ABehemothCharacter::RegenerateHealthOverTime() const
 	}
 }
 
+void ABehemothCharacter::ServerInteract_Implementation()
+{
+	Interact();
+}
+
+bool ABehemothCharacter::ServerInteract_Validate()
+{
+	return true;
+}
+
 void ABehemothCharacter::Interact()
 {
-	if(IsValid(InteractionComponent))
+	if(!HasAuthority())
 	{
-		const TScriptInterface<IBHInteractableInterface> CurrentInteractable = InteractionComponent->GetCurrentInteractable();
-		if(CurrentInteractable != nullptr)
+		ServerInteract();
+	}
+	else
+	{
+		if(IsValid(InteractionComponent))
 		{
-			if(IBHInteractableInterface::Execute_CanInteract(CurrentInteractable.GetObject()))
+			const TScriptInterface<IBHInteractableInterface> CurrentInteractable = InteractionComponent->GetCurrentInteractable();
+			if(CurrentInteractable != nullptr)
 			{
-				IBHInteractableInterface::Execute_OnInteract(CurrentInteractable.GetObject(), this);
+				if(IBHInteractableInterface::Execute_CanInteract(CurrentInteractable.GetObject()))
+				{
+					IBHInteractableInterface::Execute_OnInteract(CurrentInteractable.GetObject(), this);
+				}
 			}
 		}
 	}

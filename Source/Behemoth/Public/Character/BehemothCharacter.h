@@ -47,6 +47,8 @@ protected:
 	UFUNCTION()
 	void RegenerateHealthOverTime() const;
 
+	UFUNCTION(Server, Reliable, WithValidation)
+	void ServerInteract();
 	UFUNCTION()
 	void Interact();
 

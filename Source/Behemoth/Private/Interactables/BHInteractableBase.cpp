@@ -7,4 +7,6 @@ ABHInteractableBase::ABHInteractableBase()
 {
     StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
     StaticMeshComponent->SetupAttachment(RootComponent);
+
+    SetReplicates(true);
 }
