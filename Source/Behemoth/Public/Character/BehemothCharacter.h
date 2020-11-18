@@ -18,6 +18,7 @@ public:
 	class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 	class UBHInventoryComponent *GetInventoryComponent() const { return InventoryComponent; }
+	
 protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void BeginPlay() override;
@@ -38,19 +39,25 @@ protected:
 	UFUNCTION()
 	void OnItemUnEquipped(const FBHItemData& ItemData);
 
-	UFUNCTION(BlueprintCallable)
+	
+	UFUNCTION(Server, Reliable, WithValidation, BlueprintCallable)
+	void ServerRecalculateAttributesForItem(const FBHItemData& ItemData, const bool bIsEquipped) const;
+	UFUNCTION(Client, Reliable)
+	void ClientRecalculateAttributesForItem(const FBHItemData& ItemData, const bool bIsEquipped) const;
 	void RecalculateAttributesForItem(const FBHItemData& ItemData, const bool bIsEquipped) const;
 	
-	UFUNCTION(BlueprintCallable)
-	void UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped) const;
-
-	UFUNCTION()
-	void RegenerateHealthOverTime() const;
+	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
+	void MulticastUpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped) const;
 
 	UFUNCTION(Server, Reliable, WithValidation)
+	void ServerRegenerateHealthOverTime() const;
+	UFUNCTION(Client, Reliable, WithValidation)
+	void ClientRegenerateHealthOverTime() const;
+	void RegenerateHealthOverTime() const;
+	
+	UFUNCTION(Server, Reliable, WithValidation)
 	void ServerInteract();
-	UFUNCTION()
-	void Interact();
+
 
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "UI")

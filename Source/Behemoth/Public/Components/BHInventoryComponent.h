@@ -41,16 +41,16 @@ public:
 	UBHInventoryComponent();
 
 	/* Inventory */
-	UFUNCTION(BlueprintCallable, Category = "Inventory")
-	void AddToInventory(const FBHItemData& ItemData, const int32 Amount = 1);
-	UFUNCTION(BlueprintCallable, Category = "Inventory")
-	void RemoveFromInventory(const FBHItemData& ItemData, const int32 Amount = 1);
+	UFUNCTION(Server, Reliable, WithValidation, BlueprintCallable, Category = "Inventory")
+	void ServerAddToInventory(const FBHItemData& ItemData, const int32 Amount = 1);
+	UFUNCTION(Server, Reliable, WithValidation, BlueprintCallable, Category = "Inventory")
+	void ServerRemoveFromInventory(const FBHItemData& ItemData, const int32 Amount = 1);
 
 	/* Equipment */
-	UFUNCTION(BlueprintCallable, Category = "Equipment")
-	void EquipItem(const FBHItemData& ItemData);
-	UFUNCTION(BlueprintCallable, Category = "Equipment")
-	void UnEquipItem(const FBHItemData& ItemData);
+	UFUNCTION(Server, Reliable, WithValidation, BlueprintCallable, Category = "Equipment")
+	void ServerEquipItem(const FBHItemData& ItemData);
+	UFUNCTION(Server, Reliable, WithValidation, BlueprintCallable, Category = "Equipment")
+	void ServerUnEquipItem(const FBHItemData& ItemData);
 
 
 	UPROPERTY(BlueprintAssignable, Category = "Events")
@@ -61,6 +61,23 @@ public:
 	FOnItemAddedSignature OnItemAdded;
 	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnItemRemovedSignature OnItemRemoved;
+
+protected:
+	UFUNCTION(Client, Reliable)
+	void ClientAddToInventory(const FBHItemData& ItemData, const int32 Amount = 1);
+	void AddToInventory(const FBHItemData& ItemData, const int32 Amount);
+
+	UFUNCTION(Client, Reliable)
+	void ClientRemoveFromInventory(const FBHItemData& ItemData, const int32 Amount = 1);
+	void RemoveFromInventory(const FBHItemData& ItemData, const int32 Amount);
+
+	UFUNCTION(Client, Reliable)
+	void ClientEquipItem(const FBHItemData& ItemData);
+	void EquipItem(const FBHItemData& ItemData);
+
+	UFUNCTION(Client, Reliable)
+	void ClientUnEquipItem(const FBHItemData& ItemData);
+	void UnEquipItem(const FBHItemData& ItemData);
 	
 protected:
 	/* Inventory */

@@ -28,6 +28,19 @@ void UBHInventoryComponent::AddToInventory(const FBHItemData& ItemData, const in
 
     OnItemAdded.Broadcast(ItemData, Amount);
 }
+void UBHInventoryComponent::ServerAddToInventory_Implementation(const FBHItemData& ItemData, const int32 Amount)
+{
+    AddToInventory(ItemData, Amount);
+    ClientAddToInventory(ItemData, Amount);
+}
+bool UBHInventoryComponent::ServerAddToInventory_Validate(const FBHItemData& ItemData, const int32 Amount)
+{
+    return true;
+}
+void UBHInventoryComponent::ClientAddToInventory_Implementation(const FBHItemData& ItemData, const int32 Amount)
+{
+    AddToInventory(ItemData, Amount);
+}
 
 void UBHInventoryComponent::RemoveFromInventory(const FBHItemData& ItemData, const int32 Amount)
 {
@@ -57,6 +70,19 @@ void UBHInventoryComponent::RemoveFromInventory(const FBHItemData& ItemData, con
         OnItemRemoved.Broadcast(ItemData, Amount);
     }
 }
+void UBHInventoryComponent::ServerRemoveFromInventory_Implementation(const FBHItemData& ItemData, const int32 Amount)
+{
+    RemoveFromInventory(ItemData, Amount);
+    ClientRemoveFromInventory(ItemData, Amount);
+}
+bool UBHInventoryComponent::ServerRemoveFromInventory_Validate(const FBHItemData& ItemData, const int32 Amount)
+{
+    return true;
+}
+void UBHInventoryComponent::ClientRemoveFromInventory_Implementation(const FBHItemData& ItemData, const int32 Amount)
+{
+    RemoveFromInventory(ItemData, Amount);
+}
 
 void UBHInventoryComponent::EquipItem(const FBHItemData& ItemData)
 {
@@ -66,21 +92,49 @@ void UBHInventoryComponent::EquipItem(const FBHItemData& ItemData)
         const FBHItemData CurrentlyEquippedItemInSlot = EquippedItems[ItemData.Type];
         if(CurrentlyEquippedItemInSlot)
         {
-            UnEquipItem(CurrentlyEquippedItemInSlot);
+            ServerUnEquipItem(CurrentlyEquippedItemInSlot);
         }
     }
 
     EquippedItems.Add(ItemData.Type, ItemData);
-    RemoveFromInventory(ItemData, 1);
+    ServerRemoveFromInventory(ItemData, 1);
 
     OnItemEquipped.Broadcast(ItemData);
+}
+void UBHInventoryComponent::ServerEquipItem_Implementation(const FBHItemData& ItemData)
+{
+    EquipItem(ItemData);
+    ClientEquipItem(ItemData);
+}
+bool UBHInventoryComponent::ServerEquipItem_Validate(const FBHItemData& ItemData)
+{
+    return true;
+}
+void UBHInventoryComponent::ClientEquipItem_Implementation(const FBHItemData& ItemData)
+{
+    EquipItem(ItemData);
 }
 
 void UBHInventoryComponent::UnEquipItem(const FBHItemData& ItemData)
 {
     EquippedItems.Remove(ItemData.Type);
-    AddToInventory(ItemData, 1);
+    ServerAddToInventory(ItemData, 1);
 
     OnItemUnEquipped.Broadcast(ItemData);
 }
+void UBHInventoryComponent::ServerUnEquipItem_Implementation(const FBHItemData& ItemData)
+{
+    UnEquipItem(ItemData);
+    ClientUnEquipItem(ItemData);
+}
+bool UBHInventoryComponent::ServerUnEquipItem_Validate(const FBHItemData& ItemData)
+{
+    return true;
+}
+void UBHInventoryComponent::ClientUnEquipItem_Implementation(const FBHItemData& ItemData)
+{
+    UnEquipItem(ItemData);
+}
+
+
 

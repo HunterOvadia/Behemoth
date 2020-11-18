@@ -16,6 +16,7 @@
       </e>
       <e p="Engine" t="Include" />
       <e p="Games" t="Include" />
+      <e p="HunterOvadia_IntrepidTest.zip" t="Include" />
       <e p="Intermediate\Build\Unused" t="ExcludeRecursive" />
       <e p="Intermediate\ProjectFiles" t="IncludeRecursive">
         <e p="Behemoth.vcxproj" t="IncludeRecursive" />

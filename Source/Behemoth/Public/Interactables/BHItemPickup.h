@@ -21,7 +21,6 @@ class BEHEMOTH_API ABHItemPickup : public ABHInteractableBase
     virtual void OnInteract_Implementation(AActor* InteractInstigator) override;
     
 protected:
-
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item")
     int32 ItemID;
     

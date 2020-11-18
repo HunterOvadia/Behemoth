@@ -82,7 +82,7 @@ void ABehemothCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	PlayerInputComponent->BindAction("Inventory", IE_Released, this, &ABehemothCharacter::ToggleInventory);
 	PlayerInputComponent->BindAction("CharacterInfo", IE_Released, this, &ABehemothCharacter::ToggleCharacterInfo);
-	PlayerInputComponent->BindAction("Interact", IE_Released, this, &ABehemothCharacter::Interact);
+	PlayerInputComponent->BindAction("Interact", IE_Released, this, &ABehemothCharacter::ServerInteract);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ABehemothCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ABehemothCharacter::MoveRight);
@@ -104,15 +104,20 @@ void ABehemothCharacter::BeginPlay()
 			PlayerHUD->AddToViewport();
 		}
 	}
-	UWorld *World = GetWorld();
-	if(World != nullptr)
+
+	if(HasAuthority())
 	{
-		World->GetTimerManager().SetTimer(HealthRegenTimerHandle, this, &ABehemothCharacter::RegenerateHealthOverTime, HealthRegenRate, true);
-		if(IsValid(InventoryComponent))
-		{
-			InventoryComponent->OnItemEquipped.AddDynamic(this, &ABehemothCharacter::OnItemEquipped);
-			InventoryComponent->OnItemUnEquipped.AddDynamic(this, &ABehemothCharacter::OnItemUnEquipped);
-		}
+		UWorld *World = GetWorld();
+        if(World != nullptr)
+        {
+        	World->GetTimerManager().SetTimer(HealthRegenTimerHandle, this, &ABehemothCharacter::ServerRegenerateHealthOverTime, HealthRegenRate, true);
+        }
+    
+        if(IsValid(InventoryComponent))
+        {
+        	InventoryComponent->OnItemEquipped.AddDynamic(this, &ABehemothCharacter::OnItemEquipped);
+        	InventoryComponent->OnItemUnEquipped.AddDynamic(this, &ABehemothCharacter::OnItemUnEquipped);
+        }
 	}
 }
 
@@ -140,40 +145,26 @@ void ABehemothCharacter::LookUpAtRate(const float Rate)
 
 void ABehemothCharacter::OnItemEquipped(const FBHItemData& ItemData)
 {
-	UpdateArmorMesh(ItemData, true);
-	RecalculateAttributesForItem(ItemData, true);
+	MulticastUpdateArmorMesh(ItemData, true);
+	ServerRecalculateAttributesForItem(ItemData, true);
 }
 
 void ABehemothCharacter::OnItemUnEquipped(const FBHItemData& ItemData)
 {
-	UpdateArmorMesh(ItemData, false);
-	RecalculateAttributesForItem(ItemData, false);
+	MulticastUpdateArmorMesh(ItemData, false);
+	ServerRecalculateAttributesForItem(ItemData, false);
 }
+
 
 void ABehemothCharacter::RecalculateAttributesForItem(const FBHItemData& ItemData, const bool bIsEquipped) const
 {
 	if(IsValid(AttributesComponent))
 	{
 		for(const auto& Attribute : ItemData.Attributes)
-        {
-	        const float ModificationAmount = (bIsEquipped ? Attribute.Value : -Attribute.Value);
-        	AttributesComponent->ModifyAttributeMax(Attribute.Key, ModificationAmount);
-        }
-	}
-}
-
-
-void ABehemothCharacter::UpdateArmorMesh(const FBHItemData& ItemData, const bool bIsEquipped) const
-{
-	UStaticMeshComponent *ComponentToUpdate = nullptr;
-	if(ArmorMeshComponentsMap.Find(ItemData.Type))
-	{
-		ComponentToUpdate = ArmorMeshComponentsMap[ItemData.Type];
-	}
-
-	if(IsValid(ComponentToUpdate))
-	{
-		ComponentToUpdate->SetStaticMesh(bIsEquipped ? ItemData.ItemMesh : nullptr);
+		{
+			const float ModificationAmount = (bIsEquipped ? Attribute.Amount : -Attribute.Amount);
+			AttributesComponent->ModifyAttributeMax(Attribute.Type, ModificationAmount);
+		}
 	}
 }
 
@@ -187,37 +178,78 @@ void ABehemothCharacter::RegenerateHealthOverTime() const
 		}
 	}
 }
+void ABehemothCharacter::ServerRegenerateHealthOverTime_Implementation() const
+{
+	ClientRegenerateHealthOverTime();
+	RegenerateHealthOverTime();
+}
+bool ABehemothCharacter::ServerRegenerateHealthOverTime_Validate()
+{
+	return true;
+}
+void ABehemothCharacter::ClientRegenerateHealthOverTime_Implementation() const
+{
+	RegenerateHealthOverTime();
+}
+bool ABehemothCharacter::ClientRegenerateHealthOverTime_Validate()
+{
+	return true;
+}
+
+
+void ABehemothCharacter::ServerRecalculateAttributesForItem_Implementation(const FBHItemData& ItemData, const bool bIsEquipped) const
+{
+	RecalculateAttributesForItem(ItemData, bIsEquipped);
+	ClientRecalculateAttributesForItem(ItemData, bIsEquipped);
+}
+
+bool ABehemothCharacter::ServerRecalculateAttributesForItem_Validate(const FBHItemData& ItemData,
+    const bool bIsEquipped)
+{
+	return true;
+}
+
+
+void ABehemothCharacter::ClientRecalculateAttributesForItem_Implementation(const FBHItemData& ItemData, const bool bIsEquipped) const
+{
+	RecalculateAttributesForItem(ItemData, bIsEquipped);
+}
+
+
+void ABehemothCharacter::MulticastUpdateArmorMesh_Implementation(const FBHItemData& ItemData, const bool bIsEquipped) const
+{
+	UStaticMeshComponent *ComponentToUpdate = nullptr;
+	if(ArmorMeshComponentsMap.Find(ItemData.Type))
+	{
+		ComponentToUpdate = ArmorMeshComponentsMap[ItemData.Type];
+	}
+
+	if(IsValid(ComponentToUpdate))
+	{
+		ComponentToUpdate->SetStaticMesh(bIsEquipped ? ItemData.ItemMesh : nullptr);
+	}
+}
+
+
 
 void ABehemothCharacter::ServerInteract_Implementation()
 {
-	Interact();
+	if(IsValid(InteractionComponent))
+	{
+		const TScriptInterface<IBHInteractableInterface> CurrentInteractable = InteractionComponent->GetCurrentInteractable();
+		if(CurrentInteractable != nullptr)
+		{
+			if(IBHInteractableInterface::Execute_CanInteract(CurrentInteractable.GetObject()))
+			{
+				IBHInteractableInterface::Execute_OnInteract(CurrentInteractable.GetObject(), this);
+			}
+		}
+	}
 }
 
 bool ABehemothCharacter::ServerInteract_Validate()
 {
 	return true;
-}
-
-void ABehemothCharacter::Interact()
-{
-	if(!HasAuthority())
-	{
-		ServerInteract();
-	}
-	else
-	{
-		if(IsValid(InteractionComponent))
-		{
-			const TScriptInterface<IBHInteractableInterface> CurrentInteractable = InteractionComponent->GetCurrentInteractable();
-			if(CurrentInteractable != nullptr)
-			{
-				if(IBHInteractableInterface::Execute_CanInteract(CurrentInteractable.GetObject()))
-				{
-					IBHInteractableInterface::Execute_OnInteract(CurrentInteractable.GetObject(), this);
-				}
-			}
-		}
-	}
 }
 
 void ABehemothCharacter::MoveForward(const float Value)

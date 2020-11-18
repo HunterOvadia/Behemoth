@@ -3,6 +3,12 @@
 
 #include "Items/BHItemData.h"
 
+FAttributeData::FAttributeData()
+    : Type()
+    , Amount(0)
+{
+}
+
 FBHItemData::FBHItemData()
     : ID(-1)
     , ItemIcon(nullptr)

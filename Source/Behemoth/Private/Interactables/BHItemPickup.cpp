@@ -41,7 +41,7 @@ void ABHItemPickup::OnInteract_Implementation(AActor *InteractInstigator)
         ABehemothCharacter *Character = Cast<ABehemothCharacter>(InteractInstigator);
         if(IsValid(Character))
         {
-            Character->GetInventoryComponent()->AddToInventory(OwningItemData);
+            Character->GetInventoryComponent()->ServerAddToInventory(OwningItemData);
             Destroy();
         }
     }

@@ -34,6 +34,18 @@ enum EBHItemType
 	SecondaryWeapon,
 };
 
+USTRUCT(BlueprintType)
+struct FAttributeData
+{
+	GENERATED_BODY()
+	FAttributeData();
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TEnumAsByte<EBHAttributeType> Type;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int32 Amount;
+};
 
 USTRUCT(BlueprintType)
 struct FBHItemData : public FTableRowBase
@@ -62,5 +74,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TEnumAsByte<EBHItemType> Type;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TMap<TEnumAsByte<EBHAttributeType>, int32> Attributes;
+	TArray<FAttributeData> Attributes;
+	//TMap<TEnumAsByte<EBHAttributeType>, int32> Attributes;
 };
